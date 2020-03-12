@@ -1,0 +1,77 @@
+.header
+  background-color: $color-bg-main
+  &__navigate
+    padding: 1.9rem 3.5rem 2.4rem
+    background-color: $color-white
+    border-bottom-left-radius: 1rem
+    border-bottom-right-radius: 1rem
+    box-shadow: 0.2rem 0.4rem 1.4rem rgba(0, 0, 0, 0.2)
+    display: flex
+    justify-content: space-between
+    &_logo
+      display: flex
+      align-items: center
+      user-select: none
+      &-img
+        width: 5rem
+        height: 4.8rem
+        margin-right: 1.2rem
+        svg
+          width: 100%
+          height: 100%
+      &-text
+        p:first-child
+          +gilroy_bold
+          font-size: 3rem
+          color: $color-black
+          margin-bottom: 0.5rem
+        p:last-child
+          +gilroy_regular
+          font-size: 1.4rem
+          color: $color-red
+
+    &_menu, &_menuList  
+      display: flex
+    &_menu
+      align-items: center
+    &_menuList
+      justify-content: space-between
+      width: 48.3rem
+      &-item
+        a
+          +gilroy_medium
+          font-size: 1.8rem
+          color: $color-dark
+          user-select: none
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+          &:active
+            color: $color-red
+    &_contact
+      p:first-child
+        margin-bottom: 0.7rem
+        +gilroy_medium
+        font-size: 1.6rem
+        color: $color-dark
+        text-align: right
+      &-link
+        display: flex
+        align-items: center
+        color: $color-dark
+        text-decoration: none
+        p
+          +geometria_extrabold
+          font-size: 1.9rem
+        &:active
+          transform: translateY(0.1rem)
+      &-img
+        width: 2.8rem
+        height: 2.8rem
+        border-radius: 1.4rem
+        box-shadow: 0 0 1.4rem rgba(0, 0, 0, 0.53)
+        margin-right: 1.7rem
+        svg
+          width: 100%
+          height: 100%
+
