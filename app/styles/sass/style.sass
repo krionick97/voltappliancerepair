@@ -1,17 +1,130 @@
 @import 'fonts'
 @import 'mixin'
 @import 'variables'
+
+@mixin custom-scroll
+  overflow: hidden
+  overflow-y: scroll
+  scrollbar-base-color: transparent
+  &::-webkit-scrollbar
+    // position: absolute
+    width: 0.8rem
+  &::-webkit-scrollbar-thumb
+    border-radius: 0.4rem
+    background-color: rgba($color-grey, 0.7)
+  &::-webkit-scrollbar-track-piece 
+    background: transparent
   
 html
   font-size: 10px
 
 body
-  overflow: hidden
+  overflow-x: hidden
+  +gilroy_regular
+  color: $color-dark
 
 .container
   max-width: 110rem
   margin: 0 auto
 
+.btn
+  +gilroy_bold
+  font-size: 2.3rem
+  border-radius: 0.5rem
+  border: none
+  background: linear-gradient(270deg, #FF3737 0%, #FF6868 100%)
+  outline: none
+  color: $color-white
+  &:hover
+    cursor: pointer
+  &:active
+    background: $color-red
+    box-shadow: inset 0 0 2rem rgba($color-black, 0.2)
+
+.list
+  border: 0.1rem solid $color-text
+  border-radius: 0.3rem
+  display: flex
+  align-items: center
+  justify-content: space-between
+  position: relative
+  &-arrow
+    width: 1.3rem
+    height: 0.7rem
+    transition: 0.1s
+    svg
+      width: 100%
+      height: 100%
+    &:hover
+      cursor: pointer
+    &.open
+      transition: 0.1s
+      transform: rotate(180deg)
+  &-items
+    opacity: 0
+    pointer-events: none
+    transition: 0.1s
+    position: absolute
+    background-color: $color-white
+    width: 100%
+    left: -0.1rem
+    top: 120%
+    z-index: 2
+    border: 0.1rem solid $color-text
+    border-radius: 0.3rem
+    overflow-y: scroll
+    max-height: 30rem
+    @include custom-scroll
+    &.visible
+      opacity: 1
+      pointer-events: auto
+      transition: 0.1s
+  &-item
+    padding: 0.5rem 1rem 0.5rem 0.8rem
+    box-sizing: border-box
+    border-bottom: 0.1rem solid $color-text
+    user-select: none
+    p
+      font-size: 1.4rem
+    &:hover
+      cursor: pointer
+    &:last-child
+      margin-bottom: 1rem
+    &.selected
+      background-color: rgba($color-grey, 0.2)
+
+.check
+  display: block
+  width: 1.6rem
+  height: 1.6rem
+  border-radius: 0.2rem
+  border: 0.1rem solid $color-text
+  position: relative
+  user-select: none
+  input
+    position: absolute
+    display: block
+    z-index: 2
+    width: 100%
+    height: 100%
+    bottom: 50%
+    right: 50%
+    transform: translate(70%, 70%)
+    opacity: 0
+    &:hover
+      cursor: pointer
+  svg
+    display: none
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 1.2rem
+    height: 0.9rem
+
+.check
+  input:checked + label > svg
+    display: block
 
 @import 'header'
 

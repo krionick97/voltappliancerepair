@@ -1,6 +1,9 @@
 .header
+  display: block
   background-color: $color-bg-main
-  height: 86.5rem
+  width: 100%
+  padding-top: 18.4rem
+  height: 63.7rem
   &__navigate
     position: fixed
     top: 0
@@ -14,7 +17,8 @@
     box-shadow: 0.2rem 0.4rem 1.4rem rgba(0, 0, 0, 0.2)
     display: flex
     justify-content: space-between
-    z-index: 3
+    z-index: 5
+
     &_logo
       display: flex
       align-items: center
@@ -82,10 +86,24 @@
           width: 100%
           height: 100%
 
-  &__mainText
-    z-index: 1
-    padding-top: 18.4rem
+  &__block
     position: relative
+
+  &__bg
+    position: absolute
+    display: block
+    width: 85.5rem
+    height: 79.8rem
+    top: -17rem
+    right: 50%
+    transform: translateX(103%)
+    img
+      width: 100%
+
+  &__mainText
+    // padding-top: 18.4rem
+    margin-bottom: 5.8rem
+
     &_subtitle
       +gilroy_regular
       font-size: 2.4rem
@@ -113,15 +131,60 @@
         +gilroy_bold
         font-size: 2rem
         color: $color-black
-    &:after
-      position: absolute
-      display: block
-      content: ''
-      width: 85.5rem
-      height: 79.8rem
-      background-image: url('../../assets/images/header-img.png')
-      background-repeat: no-repeat
-      background-size: cover
-      top: -20rem
-      right: -32rem
-      z-index: 1
+
+  &__schedule
+    padding: 2.5rem 3.5rem 3.7rem
+    background-color: $color-white
+    box-shadow: 0.3rem 0.4rem 1.4rem rgba(0, 0, 0, 0.15)
+    border-radius: 0.5rem
+    width: 66rem
+    &_data
+      display: flex
+      justify-content: space-between
+      width: 100%
+      margin-bottom: 1.4rem
+
+    &_title
+      +gilroy_medium
+      font-size: 4.8rem
+      margin-bottom: 0.8rem
+    &_subtitle
+      margin-bottom: 3.8rem
+      font-size: 3.3rem
+
+    &_list
+      padding: 1rem 1.2rem 1rem 0.8rem
+      width: 27rem
+      height: 2.6rem
+      &-text p
+        +gilroy_regular
+        font-size: 2.2rem
+      &-item
+        p
+          font-size: 2rem
+    &_zip
+      padding: 1rem 1.2rem 1rem 0.8rem
+      height: 2.6rem
+      width: 13.2rem
+      border: 0.1rem solid $color-text
+      border-radius: 0.3rem
+      overflow: hidden
+      input
+        height: 100%
+        outline: none
+        border: none
+        +gilroy_regular
+        font-size: 2.2rem
+    &_btn
+      padding: 1rem 3.4rem
+    &_checkBlock
+      display: flex
+      align-items: center
+      p
+        +gilroy_light
+        font-size: 1.8rem
+        margin-left: 1.2rem
+
+
+
+
