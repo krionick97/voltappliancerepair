@@ -1,0 +1,120 @@
+.sliderBlock
+  padding: 10rem 0 12.3rem
+  &__container
+    display: block
+    width: 100%
+    height: 54.7rem
+    border: 0.2rem solid $color-red
+  &__content
+    display: flex
+    height: 100%
+    &_block
+      display: block
+      width: 50%
+      height: 100%
+      &-left
+        display: flex
+        align-items: flex-end
+        justify-content: center
+    &_image
+      display: block
+      width: 47rem
+      height: 48.1rem
+      position: relative
+      img
+        width: 100%
+        height: 100%
+      &:before
+        position: absolute
+        display: block
+        content: ''
+        width: 40rem
+        height: 40rem
+        border-radius: 20rem
+        background-color: $color-bg-main
+        z-index: -1
+        top: -3rem
+        left: 50%
+        transform: translateX(-63%)
+
+    &_promotion
+      &-title
+        +gilroy_bold
+        font-size: 6.3rem
+        text-align: center
+        max-width: 45.8rem
+        line-height: 1.1
+        margin: 3.5rem auto 5.6rem
+        span
+          color: $color-red
+      &-block
+        display: flex
+        align-items: center
+        justify-content: center
+      &-sale
+        +gilroy_black
+        font-size: 7.6rem
+        color: $color-red
+        vertical-align: top
+        position: relative
+        div
+          position: absolute
+          font-size: 5rem
+          right: -2rem
+          top: 0
+      &-condition
+        +gilroy_bold
+        font-size: 2.1rem
+        max-width: 18.3rem
+        margin-left: 2.7rem
+        text-transform: uppercase
+        line-height: 1.3
+      &-notes
+        margin: 1rem 0 3.5rem 10.5rem
+      &-note
+        font-size: 1.8rem
+        margin-bottom: 0.8rem
+    &_buttons
+      display: flex
+      justify-content: center
+    &_btn
+      background: $color-red
+      padding: 0.9rem 3rem
+      &:first-child
+        margin-right: 2.5rem
+
+    &_slider
+      &-block
+        width: 55rem
+        position: relative
+      &-items
+        width: 100%
+      &-item
+        width: 100%
+        outline: none
+ 
+.slick-dots
+  display: flex
+  width: 9rem
+  justify-content: space-between
+  position: absolute
+  bottom: -6rem
+  left: 50%
+  transform: translateX(-62%)
+  li
+    display: block
+    width: 1.5rem
+    height: 1.5rem
+    border-radius: 0.75rem
+    box-sizing: border-box
+    border: 0.1rem solid $color-red
+    outline: none
+    button
+      display: none
+    &.slick-active
+      background-color: $color-red
+      border: none
+    &:hover
+      cursor: pointer
+
+

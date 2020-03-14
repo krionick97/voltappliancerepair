@@ -1,0 +1,26 @@
+.brands
+  background-color: $color-bg-main
+  padding: 8rem 0 10rem
+  &__container
+    display: flex
+    justify-content: space-between
+  &__title
+    text-align: center
+    +gilroy_bold
+    font-size: 4.2rem
+    margin-bottom: 6.7rem
+  &__column
+    &-item
+      display: flex
+      align-items: center
+      &:not(:last-child)
+        margin-bottom: 4rem
+    &-point
+      width: 0.8rem
+      height: 0.8rem
+      border-radius: 0.4rem
+      display: flex
+      background-color: $color-dark
+      margin-right: 0.6rem
+    &-title
+      font-size: 2rem

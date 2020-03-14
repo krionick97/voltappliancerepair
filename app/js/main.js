@@ -20,32 +20,32 @@ zipCodeInput.addEventListener('input', function(){
   correctZipCode();
 });
 
-scheduleListArrow.addEventListener('click', function() {
+scheduleList.addEventListener('click', function() {
   scheduleListArrow.classList.toggle('open');
   scheduleListItemsList.classList.toggle('visible');
-
-  let mainText = scheduleListText.querySelector('p');
-
-  scheduleListItems.forEach((scheduleListItem, index, array) => {
-    let itemText = scheduleListItem.querySelector('p');
-    scheduleListItem.addEventListener('click', function() {
-      if (!scheduleListItem.classList.contains('selected')) {
-        scheduleListItem.classList.add('selected');
-        mainText.textContent = itemText.textContent;
-        scheduleListArrow.classList.toggle('open');
-        scheduleListItemsList.classList.toggle('visible');      
-      }
-
-      for (let j = index - 1; j >= 0; j--) { 
-        if (array[j].classList.contains('selected')) { array[j].classList.remove('selected'); }
-      }
-      for (let k = index + 1; k < array.length; k++) { 
-        if (array[k].classList.contains('selected')) { array[k].classList.remove('selected'); }
-      }
-    });
-
-  });  
 });
+
+let mainText = scheduleListText.querySelector('p');
+
+scheduleListItems.forEach((scheduleListItem, index, array) => {
+  let itemText = scheduleListItem.querySelector('p');
+  scheduleListItem.addEventListener('click', function() {
+    if (!scheduleListItem.classList.contains('selected')) {
+      scheduleListItem.classList.add('selected');
+      mainText.textContent = itemText.textContent;
+      scheduleListArrow.classList.toggle('open');
+      scheduleListItemsList.classList.toggle('visible');      
+    }
+
+    for (let j = index - 1; j >= 0; j--) { 
+      if (array[j].classList.contains('selected')) { array[j].classList.remove('selected'); }
+    }
+    for (let k = index + 1; k < array.length; k++) { 
+      if (array[k].classList.contains('selected')) { array[k].classList.remove('selected'); }
+    }
+  });
+
+});  
 
 window.addEventListener('click', function(event) {
   let target = event.target;

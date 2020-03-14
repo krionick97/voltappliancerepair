@@ -1,0 +1,72 @@
+.areas
+  padding: 8rem 0 10rem
+  position: relative
+  &__title
+    +gilroy_bold
+    font-size: 4.2rem
+    text-align: center
+    margin-bottom: 6rem
+  &__container
+    display: flex
+  &__data, &__mapBlock
+    width: 50%
+  &__data
+    padding-right: 1.5rem
+    &-block
+      background-color: $color-red
+      padding: 1.5rem 3.3rem 2rem
+      p
+        +gilroy_medium
+        font-size: 2.5rem
+        color: $color-bg-main
+        line-height: 1.2
+        margin-bottom: 1.7rem
+    &-phoneLink
+      display: flex
+      text-decoration: none
+      outline: none
+      transition: 0.1s
+      p
+        +geometria_extrabold
+        font-size: 1.9rem 
+        color: $color-bg-main
+      &:hover
+        cursor: pointer
+      &:active
+        transform: translateY(0.1rem)
+    &-phoneIcon
+      width: 2.8rem 
+      height: 2.8rem
+      margin-right: 1.5rem
+      svg
+        width: 100%
+        height: 100%
+    &-text
+      padding-left: 3rem
+      p
+        max-width: 47rem
+        text-align: justify
+        &:first-child
+          font-size: 2.6rem
+          line-height: 1.2
+          margin-top: 2.3rem
+          margin-bottom: 1.5rem
+        &:last-child
+          font-size: 1.4rem
+  &__mapBlock
+    padding-left: 1.5rem
+    height: 36rem
+    padding-top: 2.4rem
+    iframe
+      width: 100%
+      height: 100%
+
+  &__triangles-bg
+    position: absolute
+    top: 14rem
+    z-index: -1
+    left: 50%
+    transform: translateX(-58%)
+
+
+
