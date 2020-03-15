@@ -1,0 +1,93 @@
+.footer
+  height: 27.3rem
+  background-color: $color-dark
+  position: relative
+  &__container
+    display: flex
+  &__company
+    width: 65%
+    display: 
+    z-index: 2
+    &_card
+      position: absolute
+      display: block
+      content: ''
+      width: 43.1rem
+      height: 23.5rem
+      border-radius: 0.5rem
+      bottom: -5rem
+      background-color: $color-white
+      z-index: 1
+      left: 50%
+      transform: rotate(-5deg) translateX(-130%)
+      bottom: 12rem
+      box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.25)
+    &_block
+      &-logo
+        width: 21.2rem
+        margin: 1.8rem auto 2.2rem
+      &-contact
+        margin-top: 1.2rem
+        font-size: 1.3rem
+        letter-spacing: -0.02rem
+    &_call
+      width: 21.2rem
+      margin: 0 auto
+      height: 6rem
+      p
+        +gilroy_medium
+        font-size: 2.4rem
+        margin-bottom: 0.5rem
+      a
+        +geometria_extrabold
+        font-size: 1.8rem
+        color: $color-red
+        text-decoration: none
+        outline: none
+        transition: 0.1s
+        &:active
+          color: $color-text
+
+  &__block
+    margin-left: 5rem
+    padding-top: 6rem
+    width: 100%
+    color: $color-bg-main
+    &_links
+      width: 100%
+      &-block
+        &:first-child
+          margin-bottom: 4.5rem
+      &-list
+        display: flex
+        justify-content: space-between
+        a
+          +gilroy_medium
+          font-size: 2rem
+          color: $color-bg-main
+          text-decoration: none
+          &:active
+            color: $color-red
+      &-social
+        display: flex
+        align-items: center
+        p
+          font-size: 2rem
+          margin-right: 1.9rem
+      &-socials
+        a:not(:last-child)
+          margin-right: 1.5rem
+
+  &__copyright
+    color: $color-bg-main
+    font-size: 1.3rem
+    position: absolute
+    bottom: 1rem
+    left: 50%
+    transform: translateX(-50%)
+
+
+
+
+
+

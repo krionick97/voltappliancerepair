@@ -1,0 +1,26 @@
+mixin listItem(text)
+  div.descrBlock__text_list-item
+    div.descrBlock__text_list-point
+    p.descrBlock__text_list-offer= text
+
+
+section.descrBlock
+  div.container.descrBlock__container
+    div.descrBlock__text
+      div.descrBlock__text_block
+        h3.descrBlock__text_title Providing You With the Mr. Appliance Difference
+        p.descrBlock__text_paragraph Our customers know that they can expect nothing short of the best from Mr. Appliance of Manatee County. When you call on us, we make sure to whip your refrigerator, ice maker, oven, or any other appliance back into shape in no time! Whether major repairs, part replacements, or general maintenance is needed, our skilled experts always keep you informed and in the loop with your services.
+      div.descrBlock__text_block
+        div.descrBlock__text_list
+          +listItem('Refrigerator repair service')
+          +listItem('Dryer repair service')
+          +listItem('Washer repair service')
+          +listItem('Oven repair service')
+          +listItem('Stove repair service')
+          +listItem('Dishwasher repair service')
+            
+
+
+
+
+
