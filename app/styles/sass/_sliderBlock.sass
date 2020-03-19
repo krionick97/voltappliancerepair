@@ -5,6 +5,7 @@
     width: 100%
     height: 54.7rem
     border: 0.2rem solid $color-red
+    box-sizing: border-box
   &__content
     display: flex
     height: 100%
@@ -115,5 +116,93 @@
       border: none
     &:hover
       cursor: pointer
+
+@media (max-width: 1130px)
+  .sliderBlock
+    padding: 6rem 0 8rem
+    &__container
+      // height: 110rem
+    &__content
+      flex-direction: column
+      &_block
+        &-left
+          display: none
+        &-right
+          width: 100%
+      &_slider
+        &-block
+          margin: 0 auto
+
+@media (max-width: 620px)
+  .sliderBlock
+    padding: 2rem 0 2rem
+    &__container
+      border: none
+      width: 100%
+    &__content
+      &_slider
+        &-block
+          width: 100%
+          margin: 0
+        &-items
+          width: 100%
+        &-item
+          width: 100%
+      &_promotion
+        &-title
+          font-size: 5rem
+          margin: 3rem auto 5rem
+        &-sale
+          font-size: 6rem
+        &-condition
+          font-size: 1.8rem
+      &_buttons
+        width: 100%
+      &_btn
+        font-size: 1.8rem
+
+@media (max-width: 450px)
+  .sliderBlock
+    &__content
+      &_buttons
+        flex-direction: column
+      &_btn
+        width: 90%
+        &:first-child
+          margin: 0 auto 2rem
+        &:last-child
+          margin: 0 auto
+      &_promotion
+        &-notes
+          margin: 1.6rem auto 2.5rem
+          p
+            width: 27rem
+            margin: 0 auto
+            &:first-child
+              margin: 0 auto 1rem
+
+
+@media (max-width: 410px)
+  .sliderBlock
+    padding: 1rem 0 0
+    &__content
+      &_promotion
+        &-title
+          font-size: 4.6rem
+        &-sale
+          font-size: 5rem
+          div
+            font-size: 4rem
+
+@media (max-width: 360px)
+  .sliderBlock
+    &__content
+      &_promotion
+        &-title
+          font-size: 4rem
+        &-condition
+          max-width: 16rem
+
+
 
 

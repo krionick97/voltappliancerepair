@@ -8,6 +8,32 @@ const scheduleListItemsList = document.querySelector('.header__schedule_list-ite
 const scheduleListItems = document.querySelectorAll('.header__schedule_list-item');
 const scheduleListArrow = document.querySelector('.header__schedule_list-arrow');
 
+const burgerButton = document.querySelector('.header__burger');
+const navigateMenu = document.querySelector('.header__navigate_menu');
+const navigateMenuItems = document.querySelectorAll('.header__navigate_menuList-item');
+
+function burgerButtonFunction() {
+  burgerButton.addEventListener('click', function() {
+    burgerButton.classList.toggle('open');
+    navigateMenu.classList.toggle('visible');
+  });
+
+  navigateMenuItems.forEach((navigateMenuItem, index, array) => {
+    navigateMenuItem.addEventListener('click', function() {
+      if (navigateMenu.classList.contains('visible')) { navigateMenu.classList.remove('visible'); }
+      if (burgerButton.classList.contains('open')) { burgerButton.classList.remove('open'); }
+      if (!navigateMenuItem.classList.contains('selected')) { navigateMenuItem.classList.add('selected'); }
+      for (let j = index - 1; j >= 0; j--) {
+        if (array[j].classList.contains('selected')) { array[j].classList.remove('selected'); }
+      }
+      for (let k = index + 1; k < array.length; k++) {
+        if (array[k].classList.contains('selected')) { array[k].classList.remove('selected'); }
+      }
+    });
+  });
+}
+burgerButtonFunction();
+
 function correctZipCode() {
   let value = zipCodeInput.value;
   value = value.replace(/\D+/g, '');

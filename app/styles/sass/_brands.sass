@@ -18,9 +18,32 @@
     &-point
       width: 0.8rem
       height: 0.8rem
-      border-radius: 0.4rem
+      border-radius: 50%
       display: flex
       background-color: $color-dark
       margin-right: 0.6rem
     &-title
       font-size: 2rem
+
+@media (max-width: 760px)
+  .brands
+    padding: 6rem 0 2rem
+    &__container
+      flex-wrap: wrap
+    &__title
+      margin-bottom: 4rem
+    &__column
+      margin-bottom: 
+      &-point
+        width: 0.5rem
+        height: 0.5rem
+      &-title
+        font-size: 1.6rem
+
+@media (max-width: 530px)
+  .brands
+    &__title
+      font-size: 3.6rem
+    &__column
+      margin: 0 2rem 4rem
+

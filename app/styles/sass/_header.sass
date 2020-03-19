@@ -3,8 +3,54 @@
   background-color: $color-bg-main
   width: 100%
   padding-top: 18.4rem
-  height: 63.7rem
+  padding-bottom: 10rem
   position: relative
+  &__burger
+    display: none
+    width: 4rem
+    margin-right: 1.6rem
+    height: 2.6rem
+    user-select: none
+    position: relative
+    outline: none
+    &:before, &:after
+      transition: 0.1s
+      position: absolute
+      content: ''
+      width: 100%
+      height: 0.5rem
+      left: 0
+      background-color: $color-dark
+    &:before
+      top: 0
+    &:after
+      bottom: 0
+    &-bar
+      position: absolute
+      content: ''
+      width: 100%
+      height: 0.5rem
+      left: 0
+      background-color: $color-dark
+      top: 50%
+      transform: translateY(-50%)
+    &.open
+      div
+        display: none
+      &:before, &:after
+        left: 50%
+        width: 80%
+      &:before
+        top: 50%
+        transform: translate(-50%, -50%) rotate(-45deg)
+      &:after
+        bottom: 50%
+        transform: translate(-50%, 50%) rotate(45deg)
+
+  &__block
+    position: relative
+
+
   &__navigate
     position: fixed
     top: 0
@@ -19,7 +65,10 @@
     display: flex
     justify-content: space-between
     z-index: 5
-
+    &_block
+      &-left
+        display: flex
+        align-items: center
     &_menu, &_menuList  
       display: flex
     &_menu
@@ -40,7 +89,7 @@
             color: $color-red
     &_contact
       p:first-child
-        margin-bottom: 0.7rem
+        margin-bottom: 0
         +gilroy_medium
         font-size: 1.6rem
         color: $color-dark
@@ -64,9 +113,6 @@
         svg
           width: 100%
           height: 100%
-
-  &__block
-    position: relative
 
   &__bg
     position: absolute
@@ -104,7 +150,7 @@
       &-point
         width: 1.5rem
         height: 1.5rem
-        border-radius: 0.75rem
+        border-radius: 50%
         background-color: $color-red
       p
         +gilroy_bold
@@ -172,6 +218,185 @@
     transform: translateX(-57%)
     pointer-events: none
 
+@media (max-width: 1200px)
+  .header__bg
+    width: 80rem
+    right: auto
+    left: 50%
+    transform: translateX(5%)
 
+@media (max-width: 970px)
+  .header__bg
+    transform: translateX(0)
+
+@media (max-width: 1120px)
+  .header
+    &__navigate
+      width: calc(100% - 70px)
+      border-radius: 0
+      &_menu
+        flex-grow: 1
+      &_menuList
+        margin: 0 auto
+        width: 90%
+        flex-wrap: wrap
+        &-item 
+          margin: 0 0.5rem 0.8rem
+          a
+            font-size: 1.6rem
+      &_contact
+        &-link
+          p
+            font-size: 1.7rem
+    &__triangles-bg
+      display: none
+
+
+@media (max-width: 865px)
+  .header
+    padding-top: 14rem
+    padding-bottom: 7rem
+    &__schedule
+      &_title
+        font-size: 3.6rem
+      &_subtitle
+        font-size: 2.6rem
+      &_btn
+        font-size: 1.8rem
+      &_list
+        height: 2rem
+      &_zip
+        height: 2rem
+      &_checkBlock
+        p
+          font-size: 1.4rem
+    &__navigate
+      padding: 1.6rem 1.5rem 2rem
+      width: calc(100% - 30px)
+      &_contact
+        p:first-child
+          margin-bottom: 0.3rem
+        &-link
+          p
+            white-space: nowrap
+        &-img
+          display: none
+    &__bg
+      transform: translateX(-10%)
+
+@media (max-width: 786px)
+  .header
+    &__schedule
+      width: auto
+      &_data
+        justify-content: flex-start
+      &_list
+        width: 19rem
+        &-text p
+          font-size: 1.6rem
+        &-item p
+          font-size: 1.6rem
+      &_zip
+        width: 6.3rem
+        margin: 0 2rem
+        input
+          font-size: 1.6rem
+
+@media (max-width: 610px)
+  .header
+    &__mainText
+      &_title
+        width: 100%
+        font-size: 5.8rem
+      &_items
+        width: 38rem
+        p
+          font-size: 1.6rem
+        &-point
+          width: 1.2rem
+          height: 1.2rem
+    &__schedule
+      padding: 2rem 3rem 3.5rem
+      &_data
+        flex-direction: column
+      &_listBlock
+        width: 100%
+        margin-bottom: 1.4rem
+      &_list
+        width: calc(100% - 20px)
+        &-items
+          left: 0
+          width: 100%
+      &_zip
+        width: calc(100% - 20px)
+        margin: 0 0 1.2rem
+      &_button
+        width: 100%
+      &_btn
+        width: 100%
+      &_checkBlock p
+        width: 80%
+
+@media (max-width: 560px)
+  .header
+    &__navigate
+      &_menu
+        display: none
+        position: absolute
+        top: 8.5rem
+        left: 0
+        background-color: $color-white
+        z-index: 3
+        box-shadow: 0.2rem 0.4rem 1.4rem rgba($color-black, 0.2)
+        width: 50%
+        &.visible
+          display: block
+      &_menuList
+        margin: 0
+        flex-wrap: nowrap
+        flex-direction: column
+        width: 100%
+        &-item
+          margin: 0
+          padding: 0.8rem 1.5rem
+          border-bottom: 0.1rem solid $color-dark
+          box-sizing: border-box
+          a
+            font-size: 1.8rem
+            &:hover
+              text-decoration: none
+          &:first-child
+            margin-top: 1rem
+          &:last-child
+            margin-bottom: 2rem
+          &.selected
+            background-color: rgba($color-grey, 0.2)
+    &__burger
+      display: block
+
+@media (max-width: 480px)
+  .header
+    &__bg
+      display: none
+    &__navigate
+      &_menu
+        width: 100%
+    &__mainText
+      &_title
+        font-size: 4.6rem
+      &_items
+        width: 100%
+        p
+          font-size: 1.4rem
+    &__schedule
+      &_title
+        font-size: 2.5rem
+        text-align: center
+      &_subtitle
+        font-size: 1.8rem
+        text-align: center
+        margin-bottom: 2.2rem
+      &_checkBlock p
+        font-size: 1.2rem
 
 

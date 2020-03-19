@@ -40,12 +40,12 @@ body
       height: 100%
   &-text
     p:first-child
-      +gilroy_bold
+      +gilroy_black
       font-size: 3rem
       color: $color-black
-      margin-bottom: 0.5rem
+      margin-bottom: 0.2rem
     p:last-child
-      +gilroy_regular
+      +gilroy_medium
       font-size: 1.4rem
       color: $color-red
 
@@ -167,3 +167,18 @@ body
 @import 'descrBlock'
 @import 'footer'
 
+
+@media (max-width: 1120px)
+  .container
+    max-width: 93%
+
+@media (max-width: 865px)
+  .logo
+    &-img
+      width: 4rem
+    &-text
+      p:first-child
+        font-size: 2rem
+      p:last-child
+        font-size: 1.2rem
+        max-width: 6rem

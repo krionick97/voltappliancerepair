@@ -23,6 +23,7 @@
         margin-bottom: 1.7rem
     &-phoneLink
       display: flex
+      align-items: center
       text-decoration: none
       outline: none
       transition: 0.1s
@@ -30,6 +31,8 @@
         +geometria_extrabold
         font-size: 1.9rem 
         color: $color-bg-main
+        margin: 0 0 0.2rem
+        display: block
       &:hover
         cursor: pointer
       &:active
@@ -67,6 +70,38 @@
     z-index: -1
     left: 50%
     transform: translateX(-58%)
+
+@media (max-width: 780px)
+  .areas
+    &__container
+      flex-direction: column
+    &__data
+      width: auto
+      padding: 0
+      margin: 0 auto 6rem
+      &-text
+        padding: 0 1.5rem
+    &__mapBlock
+      width: 100%
+      padding: 0
+      margin: 0 auto
+    &__triangles-bg
+      display: none
+
+@media (max-width: 480px)
+  .areas
+    padding: 6rem 0 8rem
+    &__title
+      font-size: 3.8rem
+      margin-bottom: 4rem
+    &__data
+      margin: 0 auto 3.6rem
+      &-block
+        p
+          font-size: 2.2rem
+      &-text
+        p:first-child
+          font-size: 2rem
 
 
 

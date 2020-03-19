@@ -68,7 +68,90 @@
       align-items: center
     &_btn
       padding: 0.9rem 2.5rem
+
+@media (max-width: 1150px)
+  .local
+    &__appointment
+      &_container
+        p
+          font-size: 4rem
+      &_btn
+        font-size: 1.8rem
+
+@media (max-width: 1090px)
+  .local
+    &__appointment
+      &_container
+        p
+          font-size: 3.6rem
+
       
+@media (max-width: 1000px)
+  .local
+    &__data
+      flex-direction: column
+      margin-bottom: 8rem
+      &_triangle
+        display: none
+      &_img, &_text
+        width: 100%
+      &_img
+        margin-top: 8rem
+        &-image
+          margin: 0 auto
+      &_text
+        &-title
+          text-align: center
+        &-subtitle
+          max-width: 100%
+          text-align: center
+        &-paragraph
+          max-width: 100%
+
+@media (max-width: 930px)
+  .local
+    &__appointment
+      &_container
+        flex-direction: column
+      &_btn
+        margin-top: 2rem
+        width: 70%
+
+@media (max-width: 620px)
+  .local
+    &__appointment
+      p
+        font-size: 2.6rem
+      &_btn
+        width: 100%
+
+
+@media (max-width: 480px)
+  .local
+    &__data
+      &_img
+        width: 90%
+        margin: 8rem auto 0
+        &-image
+          width: 100%
+          height: auto
+          &:before
+            display: none
+      &_text
+        &-title
+          font-size: 3.6rem
+        &-subtitle
+          font-size: 1.8rem
+        &-paragraph
+          font-size: 1.5rem
+    &__appointment
+      padding: 3.6rem 0
+      &_container
+        p
+          font-size: 2.2rem
+          text-align: center
+          line-height: 1.2
+
 
 
 
