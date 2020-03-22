@@ -1,0 +1,150 @@
+.header-when
+  padding-bottom: 16rem
+  &_block
+    position: relative
+    background-color: $color-white
+    box-shadow: 3px 4px 14px rgba(0, 0, 0, 0.15)
+    border-radius: 0.5rem
+    width: fit-content
+    padding: 6.5rem 9.2rem
+    margin: 0 auto
+    box-sizing: content-box
+    display: block
+  &_title
+    +gilroy_medium
+    font-size: 4.2rem
+    margin-bottom: 3rem
+    text-align: center
+  &_scale
+    margin: 0 auto 3.5rem
+  &_linkBlock
+    display: flex
+    justify-content: flex-end
+  &_link
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 16rem
+    height: 4.2rem
+    a
+      +gilroy_bold
+      color: $color-red
+      font-size: 1.8rem
+      text-decoration: none
+      transition: 0.1s
+      &:active
+        transform: translateY(0.05rem)
+  &_days
+    width: 100%
+    display: flex
+    justify-content: space-between
+    margin-bottom: 5rem
+  &_day
+    border: 0.1rem solid $color-red
+    border-radius: 0.5rem
+    overflow: hidden
+    box-sizing: border-box
+    &-title
+      background-color: $color-bg-main
+      padding: 1.1rem 0
+      p
+        text-align: center
+        &:first-child
+          +gilroy_medium
+          font-size: 2.4rem
+          margin-bottom: 0.1rem
+      p
+        &:last-child
+          font-size: 1.8rem
+    &-times
+      width: calc(100% - 54px)
+      padding: 2rem 2.7rem 2.5rem
+    &-time
+      padding: 1.1rem 1rem
+      box-sizing: border-box
+      border: 0.1rem solid $color-dark
+      color: $color-dark
+      border-radius: 0.5rem
+      display: flex
+      justify-content: center
+      align-items: center
+      user-select: none
+      p
+        display: inline-block
+        font-size: 1.6rem
+        +gilroy_bold
+        text-transform: uppercase
+      &:hover
+        cursor: pointer
+      &.unavailable
+        color: $color-text
+        border-color: $color-text
+        padding: 1.1rem 4.2rem
+        p
+          +gilroy_regular
+          text-transform: capitalize
+        &:hover
+          cursor: default
+      &:not(:last-child)
+        margin-bottom: 1.4rem
+    &:not(:first-child):not(:last-child)
+      margin: 0 0.5rem
+    &:first-child
+      margin-right: 0.5rem
+    &:last-child
+      margin-left: 0.5rem
+
+  &_button
+    width: 17.7rem
+    margin: 0 auto 2.5rem
+  
+  &_triangles-bg
+    bottom: 56rem
+
+@media (max-width: 1380px)
+  .header-when
+    &_day
+      &-title
+        p:first-child
+          font-size: 2rem
+        p:last-child
+          font-size: 1.6rem
+      &-time
+        p
+          font-size: 1.4rem
+
+@media (max-width: 1290px)
+  .header-when
+    &_block
+      padding: 4rem 5rem
+      width: 99%
+      box-sizing: border-box
+    &_linkBlock
+      width: 90%
+      margin: 0 auto
+      justify-content: center
+    &_days
+      width: 100%
+      flex-direction: column
+    &_day
+      width: 65rem
+      height: 19.52rem
+      margin: 0 auto 2rem !important
+    &_scale
+      width: 15rem
+
+@media (max-width: 780px)
+  .header-when
+    padding-bottom: 10rem
+    &_title
+      font-size: 3.6rem
+    &_day
+      width: 100%
+
+@media (max-width: 580px)
+  .header-when
+    &_block
+      padding: 3rem 2rem
+    &_title
+      font-size: 2.4rem
+

@@ -80,6 +80,15 @@ gulp.task('script', function() {
   }));
 });
 
+// /* Robots.txt */
+// gulp.task('robots', function() {
+//   return gulp.src('app/robots.txt')
+//   .pipe(gulp.dest('public/'))
+//   .pipe(browserSync.reload({
+//     stream: true
+//   }));
+// });
+
 /* JSON task */
 // gulp.task('json', function() {
 //   return gulp.src('app/data/*.json')
@@ -95,6 +104,7 @@ gulp.task('watch', function() {
   gulp.watch('app/styles/*.css', gulp.series('css'));
   gulp.watch('app/styles/sass/*.sass', gulp.series('sass'));
   gulp.watch('app/js/*.js', gulp.series('script'));
+  // gulp.watch('app/robots.txt', gulp.series('robots'));
   // gulp.watch('app/data/*.json', gulp.series('json'));
 });
 

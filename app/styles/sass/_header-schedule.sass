@@ -1,0 +1,173 @@
+.header-schedule
+  padding-bottom: 16rem
+  &_block
+    background-color: $color-white
+    box-shadow: 0.3rem 0.4rem 1.4rem rgba(0, 0, 0, 0.15)
+    border-radius: 0.5rem
+    width: 77.2rem
+    margin: 0 auto
+    padding: 5rem
+  &_title
+    +gilroy_medium
+    font-size: 4.2rem
+    text-align: center
+    margin-bottom: 1.6rem
+  &_subtitle
+    +gilroy_regular
+    font-size: 2.4rem
+    text-align: center
+    width: 34rem
+    margin: 0 auto 3.5rem
+    line-height: 1.2
+  &_content
+    width: 57.3rem
+    margin: 0 auto 4.3rem
+  &_data
+    display: flex
+    margin-bottom: 1.2rem
+  &_listBlock
+    width: 33.1rem
+    height: 4.6rem
+  &_list
+    width: calc(100% - 20px)
+    height: 100%
+    padding: 0 1.2rem 0 0.8rem
+    &-item p
+      font-size: 2rem
+    &-text
+      p
+        font-size: 2.2rem
+  &_zip
+    width: 21rem
+    height: 4.6rem
+    border: 0.1rem solid $color-dark
+    border-radius: 0.3rem
+    margin-left: 3rem
+    &-input
+      width: calc(100% - 20px)
+      height: calc(100% - 20px)
+      padding: 1rem 1rem
+      font-size: 2.2rem
+      border: none
+      outline: none
+      +gilroy_regular
+  &_checkBlock
+    display: flex
+    align-items: center
+    p
+      font-size: 1.6rem
+      +gilroy_light
+      margin-left: 1.2rem
+  &_button
+    margin: 0 auto 2rem
+    width: 16.7rem
+    button
+      width: 100%
+  &_contact
+    p
+      text-align: center
+      +gilroy_medium
+      font-size: 1.8rem
+      margin-bottom: 0.4rem
+    a
+      display: block
+      width: 13.7rem
+      margin: 0 auto
+      +geometria_extrabold
+      font-size: 1.8rem
+      color: $color-dark
+      text-decoration: none
+      transition: 0.1s
+      &:active
+        transform: translateY(0.08rem)
+  
+  &_triangles-bg
+    bottom: 36rem
+
+@media (max-width: 900px)
+  .header-schedule
+    padding-bottom: 12rem
+    &_block
+      width: calc(100% - 100px)
+
+@media (max-width: 730px)
+  .header-schedule
+    &_title
+      font-size: 3.6rem
+    &_subtitle
+      font-size: 2rem
+      margin: 0 auto 3rem
+    &_content
+      width: 100%
+    &_data
+      width: 100%
+      justify-content: space-between
+    &_listBlock
+      width: 45%
+    &_zip
+      margin-left: 0
+      width: 45%
+
+@media (max-width: 690px)
+  .header-schedule
+    &_data
+      flex-direction: column
+    &_listBlock
+      width: 100%
+      margin-bottom: 1.6rem
+    &_zip
+      width: 100%
+    &_checkBlock
+      p
+        width: 90%
+
+@media (max-width: 520px)
+  .header-schedule
+    padding-bottom: 8rem
+    &_block
+      padding: 4rem 3rem
+      width: calc(100% - 60px)
+    &_title
+      font-size: 2.8rem
+    &_subtitle
+      width: 90%
+      font-size: 1.8rem
+    &_checkBlock
+      p
+        font-size: 1.4rem
+
+@media (max-width: 440px)
+  .header-schedule
+    &_title
+      font-size: 2.4rem
+    &_subtitle
+      font-size: 1.6rem
+    &_listBlock
+      height: 4.2rem
+    &_list
+      &-items
+        max-height: 25rem
+      &-text p
+        font-size: 1.8rem
+      &-item p
+        font-size: 1.6rem
+    &_zip
+      height: 4.2rem
+      &-input
+        font-size: 1.8rem
+    &_checkBlock
+      p
+        font-size: 1.2rem
+        letter-spacing: -0.06rem
+
+@media (max-width: 380px)
+  .header-schedule
+    &_block
+      padding: 3rem 2rem
+      width: calc(100% - 40px)
+    &_title
+      font-size: 2rem
+    &_subtitle
+      font-size: 1.4rem
+    
+

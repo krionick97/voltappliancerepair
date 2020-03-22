@@ -132,7 +132,10 @@
         &-list
           flex-wrap: wrap
         &-item
+          width: 8.32rem
           margin: 0 2rem 2rem
+        &-social
+          width: 24rem
 
 @media (max-width: 800px)
   .footer
@@ -162,9 +165,9 @@
           &:last-child
             margin-bottom: 5rem
         &-list
-          flex-wrap: nowrap
+          // flex-wrap: nowrap
         &-item
-          margin: 0
+          margin: 0 1rem 2rem
 
     &__copyright
       width: 100%
@@ -178,13 +181,35 @@
           &:first-child
             margin-bottom: 2rem
           &:last-child
-            // margin-bottom: 2rem
         &-list
-          flex-direction: column
+          // flex-direction: column
         &-item
           &:not(:last-child)
             margin-bottom: 2rem
 
+@media (max-width: 434px)
+  .footer
+    &__block
+      &_links
+        &-block
+          &:first-child
+            margin-bottom: 0
+
+@media (max-width: 410px)
+  .footer
+    &__block
+      &_links
+        &-social
+          width: 80%
+          justify-content: space-between
+          p
+            white-space: nowrap
+            margin-right: 0
+        &-socials
+          // width: 23rem
+          a
+            svg
+              height: 2.2rem
 
 
 

@@ -7,7 +7,6 @@
   overflow-y: scroll
   scrollbar-base-color: transparent
   &::-webkit-scrollbar
-    // position: absolute
     width: 0.8rem
   &::-webkit-scrollbar-thumb
     border-radius: 0.4rem
@@ -49,7 +48,6 @@ body
       font-size: 1.4rem
       color: $color-red
 
-
 .btn, .btn-red
   +gilroy_bold
   font-size: 2.3rem
@@ -69,9 +67,7 @@ body
     background-color: $color-bg-main
     color: $color-red
     &:active
-      // background: $color-red
       box-shadow: inset 0 0 0.8rem rgba($color-black, 0.8)
-
 
 .list
   border: 0.1rem solid $color-text
@@ -159,6 +155,14 @@ body
   input:checked + label > svg
     display: block
 
+.header-scale
+  display: block
+  width: 17.2rem
+  height: 2.4rem
+  svg
+    width: 100%
+    height: 100%
+
 @import 'header'
 @import 'local'
 @import 'areas'
@@ -166,6 +170,9 @@ body
 @import 'sliderBlock'
 @import 'descrBlock'
 @import 'footer'
+@import 'popup'
+@import 'header-schedule'
+@import 'header-when'
 
 
 @media (max-width: 1120px)
