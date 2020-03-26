@@ -30,10 +30,18 @@
     border-radius: 0.5rem
     z-index: 12
     box-shadow: 0.2rem 0.4rem 1.4rem rgba(0, 0, 0, 0.2)
+    display: none
     &-sms, &-email
-      display: none
       &.active
         display: flex
+    &-thank
+      p
+        font-size: 2.4rem
+        +gilroy_medium
+        text-align: center
+        margin-bottom: 2rem
+      &.active
+        display: block
   &__input
     display: block
     +gilroy_regular
@@ -47,6 +55,9 @@
   &__btn
     display: block
     padding: 0.5rem 2rem
+    &-thank
+      margin: 0 auto
+      // width: 100%
   &__close
     position: absolute
     width: 2.2rem

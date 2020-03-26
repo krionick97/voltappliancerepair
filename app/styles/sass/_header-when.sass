@@ -15,6 +15,13 @@
     font-size: 4.2rem
     margin-bottom: 3rem
     text-align: center
+  &_not-served
+    +gilroy_medium
+    font-size: 4.2rem
+    color: $color-red
+    text-align: center
+    margin-top: 9.6rem
+    margin-bottom: 13.3rem
   &_scale
     margin: 0 auto 3.5rem
   &_linkBlock
@@ -39,6 +46,19 @@
     display: flex
     justify-content: space-between
     margin-bottom: 5rem
+    position: relative
+  &_warning-text
+    display: none
+    position: absolute
+    top: -3.6rem
+    left: 50%
+    transform: translateX(-50%)
+    +gilroy_medium
+    font-size: 2.4rem
+    color: $color-red
+    white-space: nowrap
+    &.active
+      display: block
   &_day
     border: 0.1rem solid $color-red
     border-radius: 0.5rem
@@ -76,6 +96,12 @@
         text-transform: uppercase
       &:hover
         cursor: pointer
+        background-color: $color-dark
+        color: $color-white
+      &.selected
+        background-color: $color-red
+        border-color: $color-red
+        color: $color-white
       &.unavailable
         color: $color-text
         border-color: $color-text
@@ -85,6 +111,8 @@
           text-transform: capitalize
         &:hover
           cursor: default
+          background-color: $color-white
+          color: $color-text
       &:not(:last-child)
         margin-bottom: 1.4rem
     &:not(:first-child):not(:last-child)
@@ -95,8 +123,11 @@
       margin-left: 0.5rem
 
   &_button
-    width: 17.7rem
+    // width: 17.7rem
     margin: 0 auto 2.5rem
+    button
+      display: block
+      margin: 0 auto
   
   &_triangles-bg
     bottom: 56rem
@@ -115,23 +146,60 @@
 
 @media (max-width: 1290px)
   .header-when
+    &_not-served
+      font-size: 3.6rem
+      margin-top: 7rem
+      margin-bottom: 10rem
+      line-height: 1.2
     &_block
       padding: 4rem 5rem
       width: 99%
       box-sizing: border-box
+      position: relative
     &_linkBlock
-      width: 90%
+      width: 10rem
       margin: 0 auto
       justify-content: center
+      position: absolute
+      bottom: 17rem
+      right: 50%
+      transform: translateX(30rem)
     &_days
       width: 100%
       flex-direction: column
+      position: relative
+    &_warning-text
+      position: static
+      transform: translateX(0)
+      left: auto
+      text-align: center
+      margin-bottom: 2rem
     &_day
       width: 65rem
       height: 19.52rem
       margin: 0 auto 2rem !important
+      &-time
+        &:hover
+          cursor: default
+          background-color: $color-white
+          color: $color-dark
+        &.selected
+          &:hover
+            background-color: $color-red
+            border-color: $color-red
+            color: $color-white
     &_scale
       width: 15rem
+
+@media (max-width: 950px)
+  .header-when
+    &_not-served
+      width: 80%
+      font-size: 2.8rem
+      margin-top: 6rem
+      margin-bottom: 8rem
+      margin-left: auto
+      margin-right: auto
 
 @media (max-width: 780px)
   .header-when
@@ -140,9 +208,18 @@
       font-size: 3.6rem
     &_day
       width: 100%
+    &_linkBlock
+      right: 5rem
+      bottom: 16rem
+      transform: translateX(0)
 
 @media (max-width: 580px)
   .header-when
+    &_not-served
+      width: 70%
+      font-size: 2.4rem
+      margin-top: 4rem
+      margin-bottom: 6rem
     &_block
       padding: 3rem 2rem
     &_title
