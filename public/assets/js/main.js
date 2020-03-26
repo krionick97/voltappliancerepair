@@ -7,13 +7,22 @@ $('.sliderBlock__content_slider-items').slick({
   autoplay: true,
   autoplaySpeed: 3000
 });
-startSlider();
 
 function startSlider() {
-  $('.sliderBlock__content_slider-items').slick('slickPlay');  
+  $('.sliderBlock__content_slider-items').slick({
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000
+  });  
 }
 function stopSlider() {
-  $('.sliderBlock__content_slider-items').slick('slickPause');  
+  $('.sliderBlock__content_slider-items').slick({
+    dots: true,
+    arrows: false,
+    autoplay: false,
+    autoplaySpeed: 3000
+  });  
 }
 
 
