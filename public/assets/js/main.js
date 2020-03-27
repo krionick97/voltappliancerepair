@@ -4,25 +4,16 @@ $(document).ready(function() {
 $('.sliderBlock__content_slider-items').slick({
   dots: true,
   arrows: false,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 3000
 });
+startSlider();
 
 function startSlider() {
-  $('.sliderBlock__content_slider-items').slick({
-    dots: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 3000
-  });  
+  $('.sliderBlock__content_slider-items').slick('slickPlay');  
 }
 function stopSlider() {
-  $('.sliderBlock__content_slider-items').slick({
-    dots: true,
-    arrows: false,
-    autoplay: false,
-    autoplaySpeed: 3000
-  });  
+  $('.sliderBlock__content_slider-items').slick('slickPause');  
 }
 
 
@@ -68,6 +59,7 @@ const thankOkButton = document.querySelector('.popup__btn-thank');
 
 const warningText_1 = document.querySelector('.warning-text-1');
 const nextStepButton_1 = document.querySelector('.next-step-1');
+const headerWhenCheckbox = document.querySelector('.header-when_subtitle-check');
 
 const dayAvailableTimes = document.querySelectorAll('.header-when_day-time');
 
@@ -91,11 +83,15 @@ dayAvailableTimes.forEach((dayAvailableTime, index, array) => {
 if (nextStepButton_1) {
   nextStepButton_1.addEventListener('click', function() {
     let selectedTime = 0;
+    let checkboxInput = headerWhenCheckbox.querySelector('div > input');
+    let check = headerWhenCheckbox.querySelector('.check');
     for (let dayAvailableTime of dayAvailableTimes) {
       if (dayAvailableTime.classList.contains('selected')) { selectedTime++; }
     }
     if (selectedTime === 0) { warningText_1.classList.add('active'); }
     else { warningText_1.classList.remove('active'); }
+    if (!checkboxInput.checked) { check.style.borderColor = '#FF3737'; }
+    else { check.style.borderColor = '#565656'; }
   });
 }
 

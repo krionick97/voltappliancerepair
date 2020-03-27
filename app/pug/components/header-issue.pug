@@ -50,83 +50,46 @@ header.header.header-when
       <svg viewBox="0 0 172 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="160" cy="12" r="11.5" stroke="#FF3737"/>
         <path d="M98 12H148" stroke="#FF3737"/>
+        <circle cx="86" cy="12" r="7" fill="#FF3737"/>
         <circle cx="86" cy="12" r="11.5" stroke="#FF3737"/>
         <path d="M24 12H74" stroke="#FF3737"/>
         <circle cx="12" cy="12" r="7" fill="#FF3737"/>
         <circle cx="12" cy="12" r="11.5" stroke="#FF3737"/>
       </svg>
 
-    p.header-when_title Select When Do You Need Service
-    div.header-when_linkBlock
-      div.header-when_link
-        a(href="#") Next 5 Days
-    div.header-when_days
-      div.header-when_day
-        div.header-when_day-title
-          p March 22
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time.unavailable
-            p Unavailable
-          div.header-when_day-time.unavailable
-            p Unavailable
+    p.header-when_title.header-issue_title What's the Issue?
 
-      div.header-when_day
-        div.header-when_day-title
-          p March 23
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-      div.header-when_day
-        div.header-when_day-title
-          p March 24
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-      div.header-when_day
-        div.header-when_day-title
-          p March 25
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-      div.header-when_day
-        div.header-when_day-title
-          p March 26
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-    div.header-when_subtitle
-      p Our diagnostic fee is <span>$59</span> <span>$49</span> for each appliance, but if you will do the repair, the diagnostic will be for free. After the diagnostic, technician will give you an estimate for the repair and then you will decide to do the repair or not.
-      div.header-when_subtitle-check
-        div.check
-          input(type="checkbox", name="schedule-checkbox" id="schedule-checkbox")
-          label(for="schedule-checkbox").checkbox
-            <svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 4L4.63636 8L11 1" stroke="#565656" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        p I understand about diagnostic fee
+    div.header-issue_issue
+      div.header-issue_typeList
+        div.header-issue_type
+          p.header-issue_type-title Appliance:
+          div.header-issue_type-block.header-issue_type-appliance
+            p Washing Machine
+        div.header-issue_type
+          p.header-issue_type-title Appliance Type:
+          div.header-issue_type-block
+            div.list-block.header-issue_type-listBlock
+              div.list.header-issue_type-list
+                div.list-text.header-issue_type-listText
+                  p List Text
+                div.list-arrow.header-issue_type-listArrow
+                  <svg viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.17529 1L6.67529 6L12.1753 1" stroke="#565656" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              div.list-items.header-issue_type-listItems.visible
+                  div.list-item.header-issue_type-listItem
+                    p &nbsp;
+                  div.list-item.header-issue_type-listItem.selected
+                    p Residential
+                  div.list-item.header-issue_type-listItem
+                    p Commercial
+                  div.list-item.header-issue_type-listItem
+                    p Industrial
 
 
-    p.header-when_warning-text.warning-text-1 Choose Available Time!
-
-    div.header-when_button
-      button.btn.header__schedule_btn.next-step-1 Next Step
+    div.header-when_button.header-issue_buttons
+      button.btn.header__schedule_btn Go Back
+      button.btn.header__schedule_btn.next-step-2 Next Step
     div.header-schedule_contact
       p Contact Us
       a(href="tel:+18882857957") (888) 285-7957

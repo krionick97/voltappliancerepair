@@ -1,0 +1,85 @@
+.header-issue
+  &_title
+    margin-bottom: 5.5rem
+  &_issue
+    box-sizing: border-box
+    border-radius: 0.3rem
+    height: 30rem
+    padding: 4rem 6.5rem
+    border: 0.1rem solid $color-grey
+    background-color: $color-bg-main
+    overflow: hidden
+    margin-bottom: 5rem
+  &_typeList
+    display: flex
+    justify-content: space-between
+  &_type
+    display: flex
+    align-items: center
+    width: fit-content
+    &-title
+      display: inline-block
+      margin-right: 1.5rem
+      +gilroy_regular
+      font-size: 1.8rem
+    &-block
+      display: block
+      width: 12rem
+      height: 3rem
+      border: 0.1rem solid $color-grey
+      border-radius: 0.3rem
+      background-color: $color-white
+    &-appliance
+      background: none
+      display: flex
+      align-items: center
+      p
+        +gilroy_medium
+        font-size: 1.4rem
+        letter-spacing: -0.025em
+        color: $color-text
+        margin-left: 0.4rem
+        width: 98%
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        padding: 0.1rem 0
+
+    &-listBlock
+      box-sizing: border-box
+      width: 100%
+      height: 100%
+    &-list
+      box-sizing: border-box
+      width: 100%
+      height: 100%
+      border: none
+      padding: 0 0.4rem
+    &-listText
+      font-size: 1.6rem
+      +gilroy_medium
+      width: calc(100% - 17px)
+      p
+        width: 100%
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        padding: 0.2rem 0
+    &-listItems
+      overflow-y: auto
+      border-color: $color-grey
+    &-listItem
+      padding: 0.5rem 0.4rem
+      box-sizing: border-box
+      border-bottom: 0.1rem solid $color-grey
+      p
+        font-size: 1.6rem
+      &:last-child
+        margin-bottom: 0
+        border-bottom: none
+
+
+  &_buttons
+    display: flex
+    width: 37rem
+    justify-content: space-between
