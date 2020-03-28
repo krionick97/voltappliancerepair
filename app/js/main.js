@@ -16,9 +16,6 @@ function stopSlider() {
   $('.sliderBlock__content_slider-items').slick('slickPause');  
 }
 
-
-
-
 const zipCodeInputs = document.querySelectorAll('.zip-input');
 
 const scheduleList_1 = document.querySelector('.schedule_list-1');
@@ -36,6 +33,22 @@ const scheduleListText_2 = document.querySelector('.schedule_list-text-2');
 const scheduleListItemsList_2 = document.querySelector('.schedule_list-items-2');
 const scheduleListItems_2 = document.querySelectorAll('.schedule_list-item-2');
 const scheduleListArrow_2 = document.querySelector('.schedule_list-arrow-2');
+
+const applianceTypeList = document.querySelector('.appliance-type-list');
+const applianceTypeListText = document.querySelector('.appliance-type-list_text');
+const applianceTypeListArrow = document.querySelector('.appliance-type-list_arrow');
+const applianceTypeListItems = document.querySelector('.appliance-type-list_items');
+const applianceTypeListItem = document.querySelectorAll('.appliance-type-list_item');
+
+const applianceBrandList = document.querySelector('.appliance-brand-list');
+const applianceBrandListText = document.querySelector('.appliance-brand-list_text');
+const applianceBrandListInput = document.querySelector('.appliance-brand-list_text > input');
+const applianceBrandListArrow = document.querySelector('.appliance-brand-list_arrow');
+const applianceBrandListItems = document.querySelector('.appliance-brand-list_items');
+const applianceBrandListItem = document.querySelectorAll('.appliance-brand-list_item');
+
+const applianceTypeBlock = document.querySelector('.appliance-type-block');
+const applianceBrandBlock = document.querySelector('.appliance-brand-block');
 
 const burgerButton = document.querySelector('.header__burger');
 const navigateMenu = document.querySelector('.header__navigate_menu');
@@ -58,10 +71,17 @@ const emailSendButton = document.querySelector('.popup__btn-email');
 const thankOkButton = document.querySelector('.popup__btn-thank');
 
 const warningText_1 = document.querySelector('.warning-text-1');
+const warningText_2 = document.querySelector('.warning-text-2');
 const nextStepButton_1 = document.querySelector('.next-step-1');
+const nextStepButton_2 = document.querySelector('.next-step-2');
 const headerWhenCheckbox = document.querySelector('.header-when_subtitle-check');
 
 const dayAvailableTimes = document.querySelectorAll('.header-when_day-time');
+
+const problemTitle = document.querySelector('.header-issue_problems-title');
+const problemItems = document.querySelectorAll('.header-issue_problems-item');
+const problemLine = document.querySelector('.header-issue_problems-line');
+const descriptionProblem = document.querySelector('.header-issue_problems-description > textarea');
 
 dayAvailableTimes.forEach((dayAvailableTime, index, array) => {
   dayAvailableTime.addEventListener('click', function() {
@@ -92,6 +112,75 @@ if (nextStepButton_1) {
     else { warningText_1.classList.remove('active'); }
     if (!checkboxInput.checked) { check.style.borderColor = '#FF3737'; }
     else { check.style.borderColor = '#565656'; }
+  });
+}
+
+if (nextStepButton_2) {
+  nextStepButton_2.addEventListener('click', function() {
+    let selectedProblem = 0;
+    let typeText = applianceTypeListText.querySelector('p');
+    let brandText = applianceBrandListText.querySelector('p');
+    for (let problemItem of problemItems) {
+      if (problemItem.classList.contains('selected')) { selectedProblem++; }
+    }
+    // console.log(typeText.textContent);
+    if (typeText.textContent === '\xa0') {
+      applianceTypeBlock.style.borderColor = '#FF3737';
+      warningText_2.textContent = 'Note the Appliance Type';
+      warningText_2.classList.add('active');
+    }
+    else {
+      applianceTypeBlock.style.borderColor = '#8E8E93';
+      warningText_2.classList.remove('active');
+      if (brandText.textContent === '\xa0') {
+        applianceBrandBlock.style.borderColor = '#FF3737';
+        warningText_2.classList.add('active');
+        warningText_2.textContent = 'Note the Brand';
+      } 
+        else {
+          if (!applianceBrandListInput.classList.contains('active')) {
+            applianceBrandBlock.style.borderColor = '#8E8E93';
+            warningText_2.classList.remove('active');
+            if (selectedProblem === 0 && descriptionProblem.value === '') {
+              warningText_2.classList.add('active');
+              descriptionProblem.style.borderColor = '#FF3737';
+              problemTitle.style.color = '#FF3737';
+              problemLine.style.backgroundColor = '#FF3737';
+              warningText_2.classList.add('active');
+              warningText_2.textContent = 'Select the Problem or fill the Description';
+            } else {
+              warningText_2.classList.remove('active');
+              descriptionProblem.style.borderColor = '#8E8E93';
+              problemTitle.style.color = '#162230';
+              problemLine.style.backgroundColor = '#162230';
+            }
+          }
+          else {
+            if (applianceBrandListInput.value === '') {
+              applianceBrandBlock.style.borderColor = '#FF3737';
+              warningText_2.classList.add('active');
+              warningText_2.textContent = 'Note the Brand';      
+            }
+            else {
+              applianceBrandBlock.style.borderColor = '#8E8E93';
+              warningText_2.classList.remove('active');
+              if (selectedProblem === 0 && descriptionProblem.value === '') {
+                warningText_2.classList.add('active');
+                descriptionProblem.style.borderColor = '#FF3737';
+                problemTitle.style.color = '#FF3737';
+                problemLine.style.backgroundColor = '#FF3737';
+                warningText_2.classList.add('active');
+                warningText_2.textContent = 'Select the Problem or fill the Description';
+              } else {
+                warningText_2.classList.remove('active');
+                descriptionProblem.style.borderColor = '#8E8E93';
+                problemTitle.style.color = '#162230';
+                problemLine.style.backgroundColor = '#162230';
+              }  
+            }
+          } 
+        }
+      }
   });
 }
 
@@ -267,29 +356,48 @@ zipCodeInputs.forEach(zipCodeInput => {
 
 /* ------------------ */
 
-function listOpenFunction(arrow, list, itemsList, text, items) {
+function listOpenFunction(arrow, list, itemsList, text, items, input) {
   function arrowOpenFunction() {
     if (arrow) {
       if (itemsList.classList.contains('visible')) { arrow.classList.add('open'); }
       else { arrow.classList.remove('open'); }
     }
   }
+  if (arrow) {
+    arrow.addEventListener('click', function() {
+      itemsList.classList.toggle('visible');
+      arrowOpenFunction();
+    });  
+  }
   if (list) {
-    list.addEventListener('click', function() {
+    let mainText = text.querySelector('p');
+
+    mainText.addEventListener('click', function() {
       itemsList.classList.toggle('visible');
       arrowOpenFunction();
     });
-    let mainText = text.querySelector('p');
     items.forEach((item, index, array) => {
       let itemText = item.querySelector('p');
       item.addEventListener('click', function() {
         if (!item.classList.contains('selected')) {
           item.classList.add('selected');
           mainText.textContent = itemText.textContent;
-          arrowOpenFunction();  
-          itemsList.classList.toggle('visible');      
+          // arrowOpenFunction();
         }
-  
+        if (arrow.classList.contains('open')) { arrow.classList.remove('open'); }
+        itemsList.classList.toggle('visible');      
+
+        if (input) {
+          if (index === (array.length - 1)) {
+            if (!input.classList.contains('active')) { input.classList.add('active'); }
+            if (!mainText.classList.contains('inactive')) { mainText.classList.add('inactive'); }
+          } else {
+            if (input.classList.contains('active')) { input.classList.remove('active'); }
+            if (mainText.classList.contains('inactive')) { mainText.classList.remove('inactive'); }
+            input.value = '';
+          }
+        }
+
         for (let j = index - 1; j >= 0; j--) { 
           if (array[j].classList.contains('selected')) { array[j].classList.remove('selected'); }
         }
@@ -304,6 +412,9 @@ function listOpenFunction(arrow, list, itemsList, text, items) {
 // listOpenFunction(arrow, list, itemsList, text, items)
 listOpenFunction(scheduleListArrow_1, scheduleList_1, scheduleListItemsList_1, scheduleListText_1, scheduleListItems_1);
 listOpenFunction(scheduleListArrow_2, scheduleList_2, scheduleListItemsList_2, scheduleListText_2, scheduleListItems_2);
+listOpenFunction(applianceTypeListArrow, applianceTypeList, applianceTypeListItems, applianceTypeListText, applianceTypeListItem);
+listOpenFunction(applianceBrandListArrow, applianceBrandList, applianceBrandListItems, applianceBrandListText, applianceBrandListItem, applianceBrandListInput);
+
 
 function checkScheduleButtonFunction(btn, zip, listText, list) {
   if (btn && list && zip) {
@@ -325,11 +436,18 @@ function checkScheduleButtonFunction(btn, zip, listText, list) {
 checkScheduleButtonFunction(scheduleButton_1, scheduleZip_1, scheduleListText_1, scheduleList_1);
 checkScheduleButtonFunction(scheduleButton_2, scheduleZip_2, scheduleListText_2, scheduleList_2);
 
+problemItems.forEach(problemItem => {
+  problemItem.addEventListener('click', function() {
+    problemItem.classList.toggle('selected');
+  });
+});
 
 window.addEventListener('click', function(event) {
   let target = event.target;
   let scheduleListClosest_1 = target.closest('.schedule_list-1');
   let scheduleListClosest_2 = target.closest('.schedule_list-2');
+  let applianceTypeListClosest = target.closest('.appliance-type-list');
+  let applianceBrandListClosest = target.closest('.appliance-brand-list');
 
   function listCloseOutsideFunction(listClosest, itemsList, arrow) {
     if (listClosest) { return; }
@@ -343,6 +461,8 @@ window.addEventListener('click', function(event) {
 
   listCloseOutsideFunction(scheduleListClosest_1, scheduleListItemsList_1, scheduleListArrow_1);
   listCloseOutsideFunction(scheduleListClosest_2, scheduleListItemsList_2, scheduleListArrow_2);
+  listCloseOutsideFunction(applianceTypeListClosest, applianceTypeListItems, applianceTypeListArrow);
+  listCloseOutsideFunction(applianceBrandListClosest, applianceBrandListItems, applianceBrandListArrow);
 
 });
 

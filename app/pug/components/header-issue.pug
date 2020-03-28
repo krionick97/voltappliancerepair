@@ -45,7 +45,7 @@ header.header.header-when
 
   //- div.container.header__block
 
-  div.header-when_block
+  div.header-when_block.header-issue_block
     div.header-scale.header-scale-1.header-when_scale
       <svg viewBox="0 0 172 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="160" cy="12" r="11.5" stroke="#FF3737"/>
@@ -67,25 +67,78 @@ header.header.header-when
             p Washing Machine
         div.header-issue_type
           p.header-issue_type-title Appliance Type:
-          div.header-issue_type-block
+          div.header-issue_type-block.appliance-type-block
             div.list-block.header-issue_type-listBlock
-              div.list.header-issue_type-list
-                div.list-text.header-issue_type-listText
-                  p List Text
-                div.list-arrow.header-issue_type-listArrow
+              div.list.header-issue_type-list.appliance-type-list
+                div.list-text.header-issue_type-listText.appliance-type-list_text
+                  p &nbsp;
+                div.list-arrow.header-issue_type-listArrow.appliance-type-list_arrow
                   <svg viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.17529 1L6.67529 6L12.1753 1" stroke="#565656" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-              div.list-items.header-issue_type-listItems.visible
-                  div.list-item.header-issue_type-listItem
-                    p &nbsp;
-                  div.list-item.header-issue_type-listItem.selected
-                    p Residential
-                  div.list-item.header-issue_type-listItem
-                    p Commercial
-                  div.list-item.header-issue_type-listItem
-                    p Industrial
+              div.list-items.header-issue_type-listItems.appliance-type-list_items
+                //- div.list-item.header-issue_type-listItem.appliance-type-list_item
+                //-   p &nbsp;
+                div.list-item.header-issue_type-listItem.appliance-type-list_item
+                  p Residential
+                div.list-item.header-issue_type-listItem.appliance-type-list_item
+                  p Commercial
+                div.list-item.header-issue_type-listItem.appliance-type-list_item
+                  p Industrial
 
+        div.header-issue_type
+          p.header-issue_type-title Brand:
+          div.header-issue_type-block.appliance-brand-block
+            div.list-block.header-issue_type-listBlock
+              div.list.header-issue_type-list.appliance-brand-list
+                div.list-text.header-issue_type-listText.appliance-brand-list_text
+                  p &nbsp;
+                  input(type="text" placeholder="Input Brand")
+                div.list-arrow.header-issue_type-listArrow.appliance-brand-list_arrow
+                  <svg viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.17529 1L6.67529 6L12.1753 1" stroke="#565656" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              div.list-items.header-issue_type-listItems.appliance-brand-list_items
+                //- div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                //-   p &nbsp;
+                div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                  p Samsung
+                div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                  p Bosch
+                div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                  p Sub-Zero
+                div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                  p Wolf
+                div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                  p GE
+                div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                  p GE Profile
+                div.list-item.header-issue_type-listItem.appliance-brand-list_item
+                  p Other
+
+        div.header-issue_type
+          p.header-issue_type-title Model Number:
+          div.header-issue_type-block.header-issue_type-modelNumber
+            input(type="text" placeholder="optional")
+
+      div.header-issue_problems
+        p.header-issue_problems-title Appliance Problems:
+        div.header-issue_problems-line
+        div.header-issue_problems-items
+          div.header-issue_problems-item
+            p not heating
+          div.header-issue_problems-item
+            p not cooling
+          div.header-issue_problems-item
+            p not working
+          div.header-issue_problems-item
+            p leaking
+
+        div.header-issue_problems-description
+          p Description
+          textarea(name="description-problem-textarea")
+
+    p.header-when_warning-text.warning-text-2 Select the Problem or fill the Description
 
     div.header-when_button.header-issue_buttons
       button.btn.header__schedule_btn Go Back
@@ -93,5 +146,4 @@ header.header.header-when
     div.header-schedule_contact
       p Contact Us
       a(href="tel:+18882857957") (888) 285-7957
-
 
