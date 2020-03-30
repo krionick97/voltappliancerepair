@@ -8,7 +8,7 @@
     width: fit-content
     padding: 6.5rem 9.2rem
     margin: 0 auto
-    box-sizing: content-box
+    box-sizing: border-box
     display: block
   &_title
     +gilroy_medium
@@ -156,9 +156,13 @@
   &_button
     // width: 17.7rem
     margin: 0 auto 2.5rem
+    display: flex
+    justify-content: space-between
     button
       display: block
-      margin: 0 auto
+      // margin: 0 auto
+    &-special
+      justify-content: flex-end
   
   &_triangles-bg
     bottom: 56rem

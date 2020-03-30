@@ -147,14 +147,17 @@
         font-size: 1.8rem
         margin-bottom: 1.4rem
       textarea
+        box-sizing: border-box
+        padding: 0.2rem 0.5rem
         resize: none
         outline: none
         +gilroy_regular
-        font-size: 1.5rem
+        font-size: 1.8rem
         border-radius: 0.3rem
         border: 0.1rem solid $color-grey
         width: 103.4rem
         height: 9.2rem
+        @include custom-scroll
 
   &_buttons
     display: flex

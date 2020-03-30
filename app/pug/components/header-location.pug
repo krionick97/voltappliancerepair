@@ -45,90 +45,56 @@ header.header.header-when
 
   //- div.container.header__block
 
-  div.header-when_block
+  div.header-when_block.header-location_block
     div.header-scale.header-scale-1.header-when_scale
       <svg viewBox="0 0 172 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="160" cy="12" r="7" fill="#FF3737"/>
         <circle cx="160" cy="12" r="11.5" stroke="#FF3737"/>
         <path d="M98 12H148" stroke="#FF3737"/>
+        <circle cx="86" cy="12" r="7" fill="#FF3737"/>
         <circle cx="86" cy="12" r="11.5" stroke="#FF3737"/>
         <path d="M24 12H74" stroke="#FF3737"/>
         <circle cx="12" cy="12" r="7" fill="#FF3737"/>
         <circle cx="12" cy="12" r="11.5" stroke="#FF3737"/>
       </svg>
 
-    p.header-when_title Select When Do You Need Service
-    div.header-when_linkBlock
-      div.header-when_link
-        a(href="#") Next 5 Days
-    div.header-when_days
-      div.header-when_day
-        div.header-when_day-title
-          p March 22
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time.unavailable
-            p Unavailable
-          div.header-when_day-time.unavailable
-            p Unavailable
+    p.header-when_title.header-location_title Servicing Location
 
-      div.header-when_day
-        div.header-when_day-title
-          p March 23
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-      div.header-when_day
-        div.header-when_day-title
-          p March 24
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-      div.header-when_day
-        div.header-when_day-title
-          p March 25
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-      div.header-when_day
-        div.header-when_day-title
-          p March 26
-          p Sunday
-        div.header-when_day-times
-          div.header-when_day-time
-            p 10:00 AM - 12:00 PM
-          div.header-when_day-time
-            p 12:00 PM - 18:00 PM
-
-    div.header-when_subtitle
-      p Our diagnostic fee is <span>$59</span> <span>$49</span> for each appliance, but if you will do the repair, the diagnostic will be for free. After the diagnostic, technician will give you an estimate for the repair and then you will decide to do the repair or not.
-      div.header-when_subtitle-check
-        div.check
-          input(type="checkbox", name="schedule-checkbox" id="schedule-checkbox")
-          label(for="schedule-checkbox").checkbox
-            <svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 4L4.63636 8L11 1" stroke="#565656" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        p I understand about diagnostic fee
+    div.header-location_data
+      div.header-location_data-block
+        p.header-location_data-title Location
+        div.header-location_data-info
+          div.header-location_data-row
+            div.header-location_data-item.header-location_data-street
+              label Street Address:
+              input(type="text")
+          div.header-location_data-columns
+            div.header-location_data-column.header-location_data-column-left
+              div.header-location_data-item
+                label Unit / Apt:
+                input(type="text")
+              div.header-location_data-item
+                label State:
+                input(type="text")
+            div.header-location_data-column.header-location_data-column-right
+              div.header-location_data-item
+                label City:
+                input(type="text")
+              div.header-location_data-item.header-location_data-zip.inactive
+                label Zip Code:
+                input(type="text" value="55555" readonly="readonly")
+          div.header-location_data-row
+            div.header-location_data-item.header-location_data-addInfo
+              label Additional Information:
+              textarea(name="additional-information-textarea")
 
 
-    p.header-when_warning-text.warning-text-1 Choose Available Time!
+      
 
-    div.header-when_button.header-when_button-special
-      button.btn.header__schedule_btn.next-step-1 Next Step
+    div.header-when_button
+      button.btn.header__schedule_btn Go Back
+      button.btn.header__schedule_btn.next-step-2 Next Step
     div.header-schedule_contact
       p Contact Us
       a(href="tel:+18882857957") (888) 285-7957
-
 

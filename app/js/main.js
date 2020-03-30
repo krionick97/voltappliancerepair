@@ -117,70 +117,58 @@ if (nextStepButton_1) {
 
 if (nextStepButton_2) {
   nextStepButton_2.addEventListener('click', function() {
-    let selectedProblem = 0;
     let typeText = applianceTypeListText.querySelector('p');
     let brandText = applianceBrandListText.querySelector('p');
+    let selectedProblem = false;
+    let isReady = true;
     for (let problemItem of problemItems) {
-      if (problemItem.classList.contains('selected')) { selectedProblem++; }
+      if (problemItem.classList.contains('selected')) {
+        selectedProblem = true;
+      }
     }
-    // console.log(typeText.textContent);
+    if (selectedProblem === false && descriptionProblem.value === '') {
+        descriptionProblem.style.borderColor = '#FF3737';
+        problemTitle.style.color = '#FF3737';
+        problemLine.style.backgroundColor = '#FF3737';
+        isReady = false;
+      } else {
+        descriptionProblem.style.borderColor = '#8E8E93';
+        problemTitle.style.color = '#162230';
+        problemLine.style.backgroundColor = '#162230';
+        selectedProblem = true;
+        isReady = true;
+    }
     if (typeText.textContent === '\xa0') {
-      applianceTypeBlock.style.borderColor = '#FF3737';
-      warningText_2.textContent = 'Note the Appliance Type';
-      warningText_2.classList.add('active');
+        applianceTypeBlock.style.borderColor = '#FF3737';
+        isReady = false;
+    } else {
+        applianceTypeBlock.style.borderColor = '#8E8E93';
     }
-    else {
-      applianceTypeBlock.style.borderColor = '#8E8E93';
-      warningText_2.classList.remove('active');
-      if (brandText.textContent === '\xa0') {
+    if (brandText.textContent === '\xa0') {
         applianceBrandBlock.style.borderColor = '#FF3737';
-        warningText_2.classList.add('active');
-        warningText_2.textContent = 'Note the Brand';
-      } 
+        isReady = false;
+    } else {
+      if (!applianceBrandListInput.classList.contains('active')) {
+        applianceBrandBlock.style.borderColor = '#8E8E93';
+        isReady = true;
+      }
+      else {
+        if (applianceBrandListInput.value === '') {
+          applianceBrandBlock.style.borderColor = '#FF3737';
+          isReady = false;
+          // warningText_2.classList.add('active');
+          // warningText_2.textContent = 'Note the Brand';  
+        }
         else {
-          if (!applianceBrandListInput.classList.contains('active')) {
-            applianceBrandBlock.style.borderColor = '#8E8E93';
-            warningText_2.classList.remove('active');
-            if (selectedProblem === 0 && descriptionProblem.value === '') {
-              warningText_2.classList.add('active');
-              descriptionProblem.style.borderColor = '#FF3737';
-              problemTitle.style.color = '#FF3737';
-              problemLine.style.backgroundColor = '#FF3737';
-              warningText_2.classList.add('active');
-              warningText_2.textContent = 'Select the Problem or fill the Description';
-            } else {
-              warningText_2.classList.remove('active');
-              descriptionProblem.style.borderColor = '#8E8E93';
-              problemTitle.style.color = '#162230';
-              problemLine.style.backgroundColor = '#162230';
-            }
-          }
-          else {
-            if (applianceBrandListInput.value === '') {
-              applianceBrandBlock.style.borderColor = '#FF3737';
-              warningText_2.classList.add('active');
-              warningText_2.textContent = 'Note the Brand';      
-            }
-            else {
-              applianceBrandBlock.style.borderColor = '#8E8E93';
-              warningText_2.classList.remove('active');
-              if (selectedProblem === 0 && descriptionProblem.value === '') {
-                warningText_2.classList.add('active');
-                descriptionProblem.style.borderColor = '#FF3737';
-                problemTitle.style.color = '#FF3737';
-                problemLine.style.backgroundColor = '#FF3737';
-                warningText_2.classList.add('active');
-                warningText_2.textContent = 'Select the Problem or fill the Description';
-              } else {
-                warningText_2.classList.remove('active');
-                descriptionProblem.style.borderColor = '#8E8E93';
-                problemTitle.style.color = '#162230';
-                problemLine.style.backgroundColor = '#162230';
-              }  
-            }
-          } 
+          applianceBrandBlock.style.borderColor = '#8E8E93';
+          isReady = false;
         }
       }
+    }
+    if (isReady) {
+      //next step
+    }
+
   });
 }
 
