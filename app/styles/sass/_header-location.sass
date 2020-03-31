@@ -7,6 +7,10 @@
   &_data
     width: 100%
     margin-bottom: 5.5rem
+    &-block:first-child
+      margin-bottom: 4.8rem
+    &-block:last-child
+      // margin-bottom: 3.4rem
     &-title
       +gilroy_medium
       font-size: 3.8rem
@@ -29,6 +33,7 @@
         font-size: 3.2rem
         margin-right: 2rem
       input
+        box-sizing: border-box
         font-size: 2.2rem
         height: 3.6rem
         padding: 0 1rem
@@ -53,6 +58,7 @@
         background-color: $color-bg-main
         border: 0.1rem solid $color-grey
         color: $color-text
+        width: 28rem
     &-street
       letter-spacing: -0.06rem
     &-columns
@@ -60,6 +66,8 @@
       width: 100%
       justify-content: space-between
     &-column
+      display: flex
+      flex-direction: column
       div input
         width: 28rem
       &-left
@@ -70,5 +78,183 @@
           width: 13rem
     &-zip label
       letter-spacing: -0.14rem
+
+  &_state
+    &-listBlock
+      width: 28rem
+      height: 3.6rem
+    &-list
+      width: 100%
+      height: 100%
+      box-sizing: border-box
+      padding: 0 1rem
+      border-color: $color-dark
+    &-listText
+      width: 100%
+      p
+        font-size: 2.2rem
+        width: 100%
+    &-listItems
+      width: 100%
+      box-sizing: border-box
+      left: 0
+      box-shadow: 0.1rem 0.4rem 1rem rgba($color-black, 0.2)
+    &-listItem
+      p
+        font-size: 1.8rem
+
+  &_add
+    &-phones
+      width: 100%
+      &-btn
+        margin-top: 0.8rem
+        display: flex
+        justify-content: space-between
+        button
+          padding: 0.75rem 2.5rem
+          +gilroy_medium
+          font-size: 1.8rem
+          &:first-child
+            opacity: 0
+            pointer-events: none
+            &.visible
+              opacity: 1
+              pointer-events: auto
+    &-title
+      +gilroy_medium
+      font-size: 3.4rem
+      margin-bottom: 3.2rem
+      text-align: center
+      color: $color-red
+      display: none
+      &.active
+        display: block
+    &-column
+      display: flex
+      justify-content: space-between
+
+    &-name, &-phone
+      width: auto
+      input
+        width: 28rem
+        box-sizing: border-box
+        flex-grow: 0
+    &-name
+      label
+        width: 21rem
+    &-phone
+      label
+        width: 13rem
+
+
+
+@media (max-width: 1300px)
+  .header-location
+    &_block
+      width: 99%
+
+@media (max-width: 1180px)
+  .header-location
+    &_data
+      &-columns
+        flex-direction: column
+      &-column
+        &-right
+          div label
+            width: 21rem
+        // flex-direction: column-reverse
+    &_state
+      &-listBlock
+        width: auto
+        flex-grow: 1
+    
+    &_add
+      &-column
+        flex-direction: column
+      &-name, &-phone
+        input
+          width: auto
+          flex-grow: 1
+      &-name
+        margin-bottom: 1.6rem
+      &-phone
+        label
+          width: 21rem
+
+@media (max-width: 990px)
+  .header-location
+    &_block
+      padding: 6rem 5rem
+
+@media (max-width: 720px)
+  .header-location
+    &_title
+      margin-bottom: 4rem
+      font-size: 3.2rem
+    &_data
+      &-title
+        font-size: 3.2rem
+        margin-bottom: 3rem
+      &-item
+        label
+          font-size: 2.6rem
+          width: 18rem !important
+    &_add
+      &-title
+        font-size: 3rem
+        margin-bottom: 2.4rem
+
+    &_button
+      button
+        width: auto
+
+@media (max-width: 610px)
+  .header-location
+    &_block
+      padding: 5rem 3rem
+    &_data
+      &-item
+        label
+          font-size: 2.2rem
+          width: 15rem !important
+
+@media (max-width: 520px)
+  .header-location
+    &_data
+      &-item
+        flex-direction: column
+        align-items: flex-start
+        margin-bottom: 2.6rem
+        label
+          margin-bottom: 1rem
+          width: 100% !important
+        input, textarea
+          width: 100% !important
+      &-info
+        margin-bottom: 1.2rem
+    &_state
+      &-listBlock
+        width: 100%
+    &_add
+      &-name
+        margin-bottom: 1.6rem
+      &-phone
+        margin-bottom: 3.6rem
+      &-title
+        margin-bottom: 2rem
+
+@media (max-width: 480px)
+  .header-location
+    &_button
+      flex-direction: column
+      button:first-child
+        margin-bottom: 1.2rem
+
+    &_add-phones-btn
+      flex-direction: column
+      button:first-child
+        &.visible
+          margin-bottom: 1.2rem
+
 
 

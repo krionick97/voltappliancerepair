@@ -47,6 +47,22 @@ const applianceBrandListArrow = document.querySelector('.appliance-brand-list_ar
 const applianceBrandListItems = document.querySelector('.appliance-brand-list_items');
 const applianceBrandListItem = document.querySelectorAll('.appliance-brand-list_item');
 
+const stateList = document.querySelector('.header-location_state-list');
+const stateListText = document.querySelector('.header-location_state-listText');
+const stateListArrow = document.querySelector('.header-location_state-listArrow');
+const stateListItems = document.querySelector('.header-location_state-listItems');
+const stateListItem = document.querySelectorAll('.header-location_state-listItem');
+const contactInputPhone = document.querySelector('.header-location_data-phone > input');
+
+const locationStreet = document.querySelector('.header-location_data-street');
+const locationUnit = document.querySelector('.header-location_data-unit');
+const locationCity = document.querySelector('.header-location_data-city');
+const locationZip = document.querySelector('.header-location_data-zip');
+
+const contactFirstName = document.querySelector('.header-location_data-firstName');
+const contactLastName = document.querySelector('.header-location_data-lastName');
+const contactEmail = document.querySelector('.header-location_data-email');
+
 const applianceTypeBlock = document.querySelector('.appliance-type-block');
 const applianceBrandBlock = document.querySelector('.appliance-brand-block');
 
@@ -71,10 +87,18 @@ const emailSendButton = document.querySelector('.popup__btn-email');
 const thankOkButton = document.querySelector('.popup__btn-thank');
 
 const warningText_1 = document.querySelector('.warning-text-1');
-const warningText_2 = document.querySelector('.warning-text-2');
+// const warningText_2 = document.querySelector('.warning-text-2');
 const nextStepButton_1 = document.querySelector('.next-step-1');
 const nextStepButton_2 = document.querySelector('.next-step-2');
 const headerWhenCheckbox = document.querySelector('.header-when_subtitle-check');
+const scheduleServiceBtn = document.querySelector('.last-step-schedule-service');
+
+const addPhonesTitle = document.querySelector('.header-location_add-title');
+// const addPhonesColumnLeft = document.querySelector('.header-location_add-phones > .header-location_data-columns > .header-location_data-column-left');
+// const addPhonesColumnRight = document.querySelector('.header-location_add-phones > .header-location_data-columns > .header-location_data-column-right');
+const removePhoneButton = document.querySelector('.header-location_add-phones-btn > button:first-child');
+const addPhoneButton = document.querySelector('.header-location_add-phones-btn > button:last-child');
+const addPhonesBlock = document.querySelector('.header-location_add-phones');
 
 const dayAvailableTimes = document.querySelectorAll('.header-when_day-time');
 
@@ -120,7 +144,7 @@ if (nextStepButton_2) {
     let typeText = applianceTypeListText.querySelector('p');
     let brandText = applianceBrandListText.querySelector('p');
     let selectedProblem = false;
-    let isReady = true;
+    let isReady = false;
     for (let problemItem of problemItems) {
       if (problemItem.classList.contains('selected')) {
         selectedProblem = true;
@@ -143,6 +167,7 @@ if (nextStepButton_2) {
         isReady = false;
     } else {
         applianceTypeBlock.style.borderColor = '#8E8E93';
+        isReady = true;
     }
     if (brandText.textContent === '\xa0') {
         applianceBrandBlock.style.borderColor = '#FF3737';
@@ -161,7 +186,7 @@ if (nextStepButton_2) {
         }
         else {
           applianceBrandBlock.style.borderColor = '#8E8E93';
-          isReady = false;
+          isReady = true;
         }
       }
     }
@@ -170,6 +195,188 @@ if (nextStepButton_2) {
     }
 
   });
+}
+
+if (scheduleServiceBtn) {
+  scheduleServiceBtn.addEventListener('click', function() {
+    let isReady = false;
+    let streetInput = locationStreet.querySelector('input');
+    let unitInput = locationUnit.querySelector('input');
+    let cityInput = locationCity.querySelector('input');
+    let zipInput = locationZip.querySelector('input');
+    let firstNameInput = contactFirstName.querySelector('input');
+    let lastNameInput = contactLastName.querySelector('input');
+    let emailInput = contactEmail.querySelector('input');
+    let state = stateListText.querySelector('p');
+
+    let addNameInputs = document.querySelectorAll('.header-location_add-name > input');
+    let addPhoneInputs = document.querySelectorAll('.header-location_add-phone > input');
+
+    if (streetInput.value === '') {
+      streetInput.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      streetInput.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (unitInput.value === '') {
+      unitInput.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      unitInput.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (cityInput.value === '') {
+      cityInput.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      cityInput.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (zipInput.value === '') {
+      zipInput.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      zipInput.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (firstNameInput.value === '') {
+      firstNameInput.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      firstNameInput.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (lastNameInput.value === '') {
+      lastNameInput.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      lastNameInput.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (contactInputPhone.value === '' || contactInputPhone.value.length < 17) {
+      contactInputPhone.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      contactInputPhone.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (correctEmail(emailInput) !== true) {
+      emailInput.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      emailInput.style.borderColor = '#162230';
+      isReady = true;
+    }
+    if (state.textContent === '\xa0') {
+      stateList.style.borderColor = '#FF3737';
+      isReady = false;
+    } else {
+      stateList.style.borderColor = '#162230';
+      isReady = true;
+    }
+
+    if (addNameInputs && addPhoneInputs) {
+      addNameInputs.forEach(addNameInput => {
+        if (addNameInput.value === '') {
+          addNameInput.style.borderColor = '#FF3737';
+          isReady = false;
+        } else {
+          addNameInput.style.borderColor = '#162230';
+          isReady = true;
+        }
+      });
+      addPhoneInputs.forEach(addPhoneInput => {
+        if (addPhoneInput.value === '' || addPhoneInput.value.length < 17) {
+          addPhoneInput.style.borderColor = '#FF3737';
+          isReady = false;
+        } else {
+          addPhoneInput.style.borderColor = '#162230';
+          isReady = true;
+        }
+      });
+    }
+
+    if (isReady) {
+      // schedule service button
+    }
+
+  });
+}
+
+// addPhonesBlock
+
+if (addPhoneButton) {
+  addPhoneButton.addEventListener('click', function() {
+    if (!addPhonesTitle.classList.contains('active')) { addPhonesTitle.classList.add('active'); }
+    if (!removePhoneButton.classList.contains('visible')) { removePhoneButton.classList.add('visible'); }
+    let addColumn = document.createElement('div');
+    let nameBlock = document.createElement('div');
+    let nameLabel = document.createElement('label');
+    let nameInput = document.createElement('input');
+    let phoneBlock = document.createElement('div');
+    let phoneLabel = document.createElement('label');
+    let phoneInput = document.createElement('input');
+    nameLabel.textContent = 'Name:';
+    phoneLabel.textContent = 'Phone:';
+    nameInput.setAttribute('type', 'text');
+    phoneInput.setAttribute('type', 'text');
+    nameBlock.classList.add('header-location_data-item', 'header-location_add-name');
+    phoneBlock.classList.add('header-location_data-item', 'header-location_add-phone');
+    addColumn.classList.add('header-location_add-column');
+
+    nameBlock.append(nameLabel);
+    nameBlock.append(nameInput);
+    phoneBlock.append(phoneLabel);
+    phoneBlock.append(phoneInput);
+
+    addColumn.append(nameBlock);
+    addColumn.append(phoneBlock);
+
+    addPhonesBlock.append(addColumn);
+
+    phoneInput.addEventListener('input', function() {
+      correctPhoneNumber(phoneInput);
+    });
+  });
+
+  removePhoneButton.addEventListener('click', function() {
+    let columnBlock = document.querySelectorAll('.header-location_add-column');
+    if (columnBlock) {
+      for (let i = 0; i < columnBlock.length; i++) {
+        columnBlock[columnBlock.length - 1].remove();
+      }
+      if (columnBlock.length === 1) {
+        removePhoneButton.classList.remove('visible');
+        addPhonesTitle.classList.remove('active');
+      }
+    }
+  });
+}
+
+
+function correctPhoneNumber(inputItem) {
+  let value = inputItem.value;
+    value = value.replace(/\D+/g, '');
+    if (value.substring(0,1) != '1') {
+        value = '1' + value;
+    }
+    let new_value = '+';
+    for (let i = 0; i < value.length; i++) {
+        if (new_value.length === 2) { new_value += ' (' + value.substring(i,i+1);}
+        else if (new_value.length === 7) { new_value += ') ' + value.substring(i,i+1);}
+        else if (new_value.length === 12) { new_value += '-' + value.substring(i,i+1);}
+        else if (new_value.length === 17) {}
+        else {new_value += value.substring(i,i+1);}
+    }
+    inputItem.value = new_value;
+}
+
+let correctEmail = function (emailInput) {
+  let value = emailInput.value;
+  let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  if (reg.test(value)) { return true; }
+  else { return false; }
 }
 
 if (popup) {
@@ -200,10 +407,10 @@ if (popup) {
     }
   });
   emailSendButton.addEventListener('click', function() {
-    let value = inputEmailPopup.value;
-    let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    // let value = inputEmailPopup.value;
+    // let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-    if (reg.test(value)) {
+    if (correctEmail(inputEmailPopup) === true) {
       if (popupSendEmail.classList.contains('active')) { popupSendEmail.classList.remove('active'); }
       if (!popupThank.classList.contains('active')) { popupThank.classList.add('active'); }
     } else {
@@ -213,24 +420,8 @@ if (popup) {
     }
   });
   
-  function correctPhoneNumber() {
-    let value = inputTelPopup.value;
-      value = value.replace(/\D+/g, '');
-      if (value.substring(0,1) != '1') {
-          value = '1' + value;
-      }
-      let new_value = '+';
-      for (let i = 0; i < value.length; i++) {
-          if (new_value.length === 2) { new_value += ' (' + value.substring(i,i+1);}
-          else if (new_value.length === 7) { new_value += ') ' + value.substring(i,i+1);}
-          else if (new_value.length === 12) { new_value += '-' + value.substring(i,i+1);}
-          else if (new_value.length === 17) {}
-          else {new_value += value.substring(i,i+1);}
-      }
-      inputTelPopup.value = new_value;
-  }
   inputTelPopup.addEventListener('input', function() {
-      correctPhoneNumber();
+      correctPhoneNumber(inputTelPopup);
   });
   closePopupBtns.forEach(closePopupBtn => {
     closePopupBtn.addEventListener('click', function() {
@@ -341,7 +532,6 @@ zipCodeInputs.forEach(zipCodeInput => {
     correctZipCode(zipCodeInput);
   });
 });
-
 /* ------------------ */
 
 function listOpenFunction(arrow, list, itemsList, text, items, input) {
@@ -397,11 +587,13 @@ function listOpenFunction(arrow, list, itemsList, text, items, input) {
   }
 }
 
+
 // listOpenFunction(arrow, list, itemsList, text, items)
 listOpenFunction(scheduleListArrow_1, scheduleList_1, scheduleListItemsList_1, scheduleListText_1, scheduleListItems_1);
 listOpenFunction(scheduleListArrow_2, scheduleList_2, scheduleListItemsList_2, scheduleListText_2, scheduleListItems_2);
 listOpenFunction(applianceTypeListArrow, applianceTypeList, applianceTypeListItems, applianceTypeListText, applianceTypeListItem);
 listOpenFunction(applianceBrandListArrow, applianceBrandList, applianceBrandListItems, applianceBrandListText, applianceBrandListItem, applianceBrandListInput);
+listOpenFunction(stateListArrow, stateList, stateListItems, stateListText, stateListItem);
 
 
 function checkScheduleButtonFunction(btn, zip, listText, list) {
@@ -430,12 +622,20 @@ problemItems.forEach(problemItem => {
   });
 });
 
+if (contactInputPhone) {
+  contactInputPhone.addEventListener('input', function() {
+    correctPhoneNumber(contactInputPhone);
+  });
+}
+
+
 window.addEventListener('click', function(event) {
   let target = event.target;
   let scheduleListClosest_1 = target.closest('.schedule_list-1');
   let scheduleListClosest_2 = target.closest('.schedule_list-2');
   let applianceTypeListClosest = target.closest('.appliance-type-list');
   let applianceBrandListClosest = target.closest('.appliance-brand-list');
+  let stateListClosest = target.closest('.header-location_state-list');
 
   function listCloseOutsideFunction(listClosest, itemsList, arrow) {
     if (listClosest) { return; }
@@ -451,6 +651,7 @@ window.addEventListener('click', function(event) {
   listCloseOutsideFunction(scheduleListClosest_2, scheduleListItemsList_2, scheduleListArrow_2);
   listCloseOutsideFunction(applianceTypeListClosest, applianceTypeListItems, applianceTypeListArrow);
   listCloseOutsideFunction(applianceBrandListClosest, applianceBrandListItems, applianceBrandListArrow);
+  listCloseOutsideFunction(stateListClosest, stateListItems, stateListArrow);
 
 });
 

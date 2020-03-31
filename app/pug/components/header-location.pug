@@ -43,8 +43,6 @@ header.header.header-when
   div.header__triangles-bg.header-when_triangles-bg
     img(src="assets/images/triangles-bg.png", alt="Triangles-bg")
 
-  //- div.container.header__block
-
   div.header-when_block.header-location_block
     div.header-scale.header-scale-1.header-when_scale
       <svg viewBox="0 0 172 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,14 +68,136 @@ header.header.header-when
               input(type="text")
           div.header-location_data-columns
             div.header-location_data-column.header-location_data-column-left
-              div.header-location_data-item
+              div.header-location_data-item.header-location_data-unit
                 label Unit / Apt:
                 input(type="text")
               div.header-location_data-item
                 label State:
-                input(type="text")
+                //- input(type="text")
+                div.list-block.header-location_state-listBlock
+                  div.list.header-location_state-list
+                    div.list-text.header-location_state-listText
+                      p &nbsp;
+                    div.list-arrow.header-location_state-listArrow
+                      <svg viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.17529 1L6.67529 6L12.1753 1" stroke="#565656" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  div.list-items.header-location_state-listItems
+                    div.list-item.header-location_state-listItem
+                      p Alabama
+                    div.list-item.header-location_state-listItem
+                      p Alaska
+                    div.list-item.header-location_state-listItem
+                      p American Samoa
+                    div.list-item.header-location_state-listItem
+                      p Arizona
+                    div.list-item.header-location_state-listItem
+                      p Arkansas
+                    div.list-item.header-location_state-listItem
+                      p California
+                    div.list-item.header-location_state-listItem
+                      p Colorado
+                    div.list-item.header-location_state-listItem
+                      p Connecticut
+                    div.list-item.header-location_state-listItem
+                      p Delaware
+                    div.list-item.header-location_state-listItem
+                      p District of Columbia
+                    div.list-item.header-location_state-listItem
+                      p Florida
+                    div.list-item.header-location_state-listItem
+                      p Georgia
+                    div.list-item.header-location_state-listItem
+                      p Guam
+                    div.list-item.header-location_state-listItem
+                      p Hawaii
+                    div.list-item.header-location_state-listItem
+                      p Idaho
+                    div.list-item.header-location_state-listItem
+                      p Illinois
+                    div.list-item.header-location_state-listItem
+                      p Indiana
+                    div.list-item.header-location_state-listItem
+                      p Iowa
+                    div.list-item.header-location_state-listItem
+                      p Kansas
+                    div.list-item.header-location_state-listItem
+                      p Kentucky
+                    div.list-item.header-location_state-listItem
+                      p Louisiana
+                    div.list-item.header-location_state-listItem
+                      p Maine
+                    div.list-item.header-location_state-listItem
+                      p Maryland
+                    div.list-item.header-location_state-listItem
+                      p Massachusetts
+                    div.list-item.header-location_state-listItem
+                      p Michigan
+                    div.list-item.header-location_state-listItem
+                      p Minnesota
+                    div.list-item.header-location_state-listItem
+                      p Mississippi
+                    div.list-item.header-location_state-listItem
+                      p Missouri
+                    div.list-item.header-location_state-listItem
+                      p Montana
+                    div.list-item.header-location_state-listItem
+                      p Nebraska
+                    div.list-item.header-location_state-listItem
+                      p Nevada
+                    div.list-item.header-location_state-listItem
+                      p New Hampshire
+                    div.list-item.header-location_state-listItem
+                      p New Jersey
+                    div.list-item.header-location_state-listItem
+                      p New Mexico
+                    div.list-item.header-location_state-listItem
+                      p New York
+                    div.list-item.header-location_state-listItem
+                      p North California
+                    div.list-item.header-location_state-listItem
+                      p North Dakota
+                    div.list-item.header-location_state-listItem
+                      p Northen Mariana Islands
+                    div.list-item.header-location_state-listItem
+                      p Ohio
+                    div.list-item.header-location_state-listItem
+                      p Oklahoma
+                    div.list-item.header-location_state-listItem
+                      p Oregon
+                    div.list-item.header-location_state-listItem
+                      p Pennsylvania
+                    div.list-item.header-location_state-listItem
+                      p Puerto Rico
+                    div.list-item.header-location_state-listItem
+                      p Rhode Island
+                    div.list-item.header-location_state-listItem
+                      p South California
+                    div.list-item.header-location_state-listItem
+                      p South Dakota
+                    div.list-item.header-location_state-listItem
+                      p Tennessee
+                    div.list-item.header-location_state-listItem
+                      p Texas
+                    div.list-item.header-location_state-listItem
+                      p U.S. Virgin Islands
+                    div.list-item.header-location_state-listItem
+                      p Utah
+                    div.list-item.header-location_state-listItem
+                      p Vermont
+                    div.list-item.header-location_state-listItem
+                      p Virginia
+                    div.list-item.header-location_state-listItem
+                      p Washington
+                    div.list-item.header-location_state-listItem
+                      p West Virginia
+                    div.list-item.header-location_state-listItem
+                      p Wisconsin
+                    div.list-item.header-location_state-listItem
+                      p Wyoming
+
             div.header-location_data-column.header-location_data-column-right
-              div.header-location_data-item
+              div.header-location_data-item.header-location_data-city
                 label City:
                 input(type="text")
               div.header-location_data-item.header-location_data-zip.inactive
@@ -86,15 +206,46 @@ header.header.header-when
           div.header-location_data-row
             div.header-location_data-item.header-location_data-addInfo
               label Additional Information:
-              textarea(name="additional-information-textarea")
+              textarea(name="additional-information-textarea" placeholder="optional")
 
+      div.header-location_data-block
+        p.header-location_data-title Сontact
+        div.header-location_data-info
+          div.header-location_data-columns
+            div.header-location_data-column.header-location_data-column-left
+              div.header-location_data-item.header-location_data-firstName
+                label First Name:
+                input(type="text")
+              div.header-location_data-item.header-location_data-lastName
+                label Last Name:
+                input(type="text")
+            div.header-location_data-column.header-location_data-column-right
+              div.header-location_data-item.header-location_data-phone
+                label Phone:
+                input(type="text")
+              div.header-location_data-item.header-location_data-email
+                label Email:
+                input(type="text")
 
-      
+      div.header-location_add-phones
+        p.header-location_add-title Additional Phones
+        //- div.header-location_add-column
+        //-   div.header-location_data-item.header-location_add-name
+        //-     label Name:
+        //-     input(type="text")
+        //-   div.header-location_data-item.header-location_add-phone
+        //-     label Phone:
+        //-     input(type="text")
 
-    div.header-when_button
+      div.header-location_add-phones-btn
+        button.btn Remove Phone
+        button.btn Add Phone
+
+    div.header-when_button.header-location_button
       button.btn.header__schedule_btn Go Back
-      button.btn.header__schedule_btn.next-step-2 Next Step
+      button.btn.header__schedule_btn.last-step-schedule-service Schedule Your Service
     div.header-schedule_contact
       p Contact Us
       a(href="tel:+18882857957") (888) 285-7957
+
 
