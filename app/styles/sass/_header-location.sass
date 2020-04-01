@@ -106,20 +106,16 @@
   &_add
     &-phones
       width: 100%
+      // margin-bottom: 3.8rem
       &-btn
         margin-top: 0.8rem
         display: flex
-        justify-content: space-between
+        justify-content: center
         button
           padding: 0.75rem 2.5rem
           +gilroy_medium
           font-size: 1.8rem
-          &:first-child
-            opacity: 0
-            pointer-events: none
-            &.visible
-              opacity: 1
-              pointer-events: auto
+
     &-title
       +gilroy_medium
       font-size: 3.4rem
@@ -132,20 +128,42 @@
     &-column
       display: flex
       justify-content: space-between
+      margin-bottom: 3rem
+      align-items: center
 
     &-name, &-phone
-      width: auto
+      display: flex
+      align-items: center
       input
         width: 28rem
         box-sizing: border-box
         flex-grow: 0
-    &-name
+        border: 0.1rem solid $color-dark
+        border-radius: 0.3rem
+        height: 3.6rem
+        +gilroy_regular
+        font-size: 2.2rem
+        outline: none
+        padding: 0 1rem
       label
-        width: 21rem
-    &-phone
-      label
-        width: 13rem
+        +gilroy_regular
+        font-size: 3.2rem
+        width: 11rem
+        margin-right: 2rem
 
+    &-remove
+      user-select: none
+      transition: 0.1s
+      display: block
+      width: 3.5rem
+      height: 3.5rem
+      svg
+        width: 100%
+        height: 100%
+      &:hover
+        cursor: pointer
+      &:active
+        transform: translateY(0.05rem)
 
 
 @media (max-width: 1300px)
@@ -171,15 +189,22 @@
     &_add
       &-column
         flex-direction: column
+        align-items: flex-start
+        position: relative
       &-name, &-phone
+        width: 90%
+        label
+          width: 21rem
         input
           width: auto
           flex-grow: 1
       &-name
         margin-bottom: 1.6rem
-      &-phone
-        label
-          width: 21rem
+      &-remove
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
 
 @media (max-width: 990px)
   .header-location
@@ -203,10 +228,22 @@
       &-title
         font-size: 3rem
         margin-bottom: 2.4rem
-
     &_button
       button
         width: auto
+    &_add
+      &-name, &-phone
+        label
+          width: 18rem
+          font-size: 2.6rem
+
+@media (max-width: 720px)
+  .header
+    &-location
+      &_add
+        &-remove
+          width: 2.8rem
+          height: 2.8rem
 
 @media (max-width: 610px)
   .header-location
@@ -217,6 +254,12 @@
         label
           font-size: 2.2rem
           width: 15rem !important
+    &_add
+      &-name, &-phone
+        label
+          width: 15rem
+          font-size: 2.2rem
+
 
 @media (max-width: 520px)
   .header-location
@@ -236,12 +279,28 @@
       &-listBlock
         width: 100%
     &_add
+      &-name, &-phone
+        flex-direction: column
+        align-items: flex-start
+        width: 100%
+        label
+          width: 100%
+          margin-bottom: 1rem
+        input
+          width: 100%
       &-name
         margin-bottom: 1.6rem
       &-phone
-        margin-bottom: 3.6rem
+        // margin-bottom: 1.8rem
       &-title
         margin-bottom: 2rem
+
+      &-remove
+        right: 0
+        transform: translateY(0)
+        top: 0
+        width: 2.2rem
+        height: 2.2rem
 
 @media (max-width: 480px)
   .header-location
@@ -249,12 +308,9 @@
       flex-direction: column
       button:first-child
         margin-bottom: 1.2rem
-
     &_add-phones-btn
       flex-direction: column
       button:first-child
         &.visible
           margin-bottom: 1.2rem
-
-
 

@@ -55,13 +55,13 @@ const stateListItem = document.querySelectorAll('.header-location_state-listItem
 const contactInputPhone = document.querySelector('.header-location_data-phone > input');
 
 const locationStreet = document.querySelector('.header-location_data-street');
-const locationUnit = document.querySelector('.header-location_data-unit');
+// const locationUnit = document.querySelector('.header-location_data-unit');
 const locationCity = document.querySelector('.header-location_data-city');
 const locationZip = document.querySelector('.header-location_data-zip');
 
 const contactFirstName = document.querySelector('.header-location_data-firstName');
 const contactLastName = document.querySelector('.header-location_data-lastName');
-const contactEmail = document.querySelector('.header-location_data-email');
+// const contactEmail = document.querySelector('.header-location_data-email');
 
 const applianceTypeBlock = document.querySelector('.appliance-type-block');
 const applianceBrandBlock = document.querySelector('.appliance-brand-block');
@@ -96,8 +96,8 @@ const scheduleServiceBtn = document.querySelector('.last-step-schedule-service')
 const addPhonesTitle = document.querySelector('.header-location_add-title');
 // const addPhonesColumnLeft = document.querySelector('.header-location_add-phones > .header-location_data-columns > .header-location_data-column-left');
 // const addPhonesColumnRight = document.querySelector('.header-location_add-phones > .header-location_data-columns > .header-location_data-column-right');
-const removePhoneButton = document.querySelector('.header-location_add-phones-btn > button:first-child');
-const addPhoneButton = document.querySelector('.header-location_add-phones-btn > button:last-child');
+// const removePhoneButtons = document.querySelectorAll('.header-location_add-remove');
+const addPhoneButton = document.querySelector('.header-location_add-phones-btn > button');
 const addPhonesBlock = document.querySelector('.header-location_add-phones');
 
 const dayAvailableTimes = document.querySelectorAll('.header-when_day-time');
@@ -201,12 +201,12 @@ if (scheduleServiceBtn) {
   scheduleServiceBtn.addEventListener('click', function() {
     let isReady = false;
     let streetInput = locationStreet.querySelector('input');
-    let unitInput = locationUnit.querySelector('input');
+    // let unitInput = locationUnit.querySelector('input');
     let cityInput = locationCity.querySelector('input');
     let zipInput = locationZip.querySelector('input');
     let firstNameInput = contactFirstName.querySelector('input');
     let lastNameInput = contactLastName.querySelector('input');
-    let emailInput = contactEmail.querySelector('input');
+    // let emailInput = contactEmail.querySelector('input');
     let state = stateListText.querySelector('p');
 
     let addNameInputs = document.querySelectorAll('.header-location_add-name > input');
@@ -219,13 +219,13 @@ if (scheduleServiceBtn) {
       streetInput.style.borderColor = '#162230';
       isReady = true;
     }
-    if (unitInput.value === '') {
-      unitInput.style.borderColor = '#FF3737';
-      isReady = false;
-    } else {
-      unitInput.style.borderColor = '#162230';
-      isReady = true;
-    }
+    // if (unitInput.value === '') {
+    //   unitInput.style.borderColor = '#FF3737';
+    //   isReady = false;
+    // } else {
+    //   unitInput.style.borderColor = '#162230';
+    //   isReady = true;
+    // }
     if (cityInput.value === '') {
       cityInput.style.borderColor = '#FF3737';
       isReady = false;
@@ -261,13 +261,13 @@ if (scheduleServiceBtn) {
       contactInputPhone.style.borderColor = '#162230';
       isReady = true;
     }
-    if (correctEmail(emailInput) !== true) {
-      emailInput.style.borderColor = '#FF3737';
-      isReady = false;
-    } else {
-      emailInput.style.borderColor = '#162230';
-      isReady = true;
-    }
+    // if (correctEmail(emailInput) !== true) {
+    //   emailInput.style.borderColor = '#FF3737';
+    //   isReady = false;
+    // } else {
+    //   emailInput.style.borderColor = '#162230';
+    //   isReady = true;
+    // }
     if (state.textContent === '\xa0') {
       stateList.style.borderColor = '#FF3737';
       isReady = false;
@@ -299,6 +299,7 @@ if (scheduleServiceBtn) {
 
     if (isReady) {
       // schedule service button
+      console.log('service button ');
     }
 
   });
@@ -309,7 +310,6 @@ if (scheduleServiceBtn) {
 if (addPhoneButton) {
   addPhoneButton.addEventListener('click', function() {
     if (!addPhonesTitle.classList.contains('active')) { addPhonesTitle.classList.add('active'); }
-    if (!removePhoneButton.classList.contains('visible')) { removePhoneButton.classList.add('visible'); }
     let addColumn = document.createElement('div');
     let nameBlock = document.createElement('div');
     let nameLabel = document.createElement('label');
@@ -317,13 +317,17 @@ if (addPhoneButton) {
     let phoneBlock = document.createElement('div');
     let phoneLabel = document.createElement('label');
     let phoneInput = document.createElement('input');
+    let removeButton = document.createElement('div');
     nameLabel.textContent = 'Name:';
     phoneLabel.textContent = 'Phone:';
     nameInput.setAttribute('type', 'text');
     phoneInput.setAttribute('type', 'text');
-    nameBlock.classList.add('header-location_data-item', 'header-location_add-name');
-    phoneBlock.classList.add('header-location_data-item', 'header-location_add-phone');
+    removeButton.classList.add('header-location_add-remove');
+    nameBlock.classList.add('header-location_add-name');
+    phoneBlock.classList.add('header-location_add-phone');
     addColumn.classList.add('header-location_add-column');
+
+    removeButton.innerHTML = `<svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3L34 34M34 3L3 34" stroke="#FF3737" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
     nameBlock.append(nameLabel);
     nameBlock.append(nameInput);
@@ -332,25 +336,22 @@ if (addPhoneButton) {
 
     addColumn.append(nameBlock);
     addColumn.append(phoneBlock);
+    addColumn.append(removeButton);
 
     addPhonesBlock.append(addColumn);
 
     phoneInput.addEventListener('input', function() {
       correctPhoneNumber(phoneInput);
     });
-  });
 
-  removePhoneButton.addEventListener('click', function() {
-    let columnBlock = document.querySelectorAll('.header-location_add-column');
-    if (columnBlock) {
-      for (let i = 0; i < columnBlock.length; i++) {
-        columnBlock[columnBlock.length - 1].remove();
+    removeButton.addEventListener('click', function() {
+      removeButton.parentNode.remove();
+      let columns = document.querySelectorAll('.header-location_add-column');
+      // console.log(columns.length);
+      if (columns.length === 0) {
+        if (addPhonesTitle.classList.contains('active')) { addPhonesTitle.classList.remove('active'); }
       }
-      if (columnBlock.length === 1) {
-        removePhoneButton.classList.remove('visible');
-        addPhonesTitle.classList.remove('active');
-      }
-    }
+    });
   });
 }
 
