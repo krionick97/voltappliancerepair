@@ -1,0 +1,84 @@
+.header-booked
+  &_block
+
+  &_item
+    width: fit-content
+    margin-bottom: 2.3rem
+    &-title
+      +gilroy_medium
+      font-size: 2.6rem
+      margin-bottom: 1rem
+    &-text
+      font-size: 1.8rem
+      max-width: 17.6rem
+      line-height: 1.2
+      &:not(:last-child)
+        margin-bottom: 0.5rem
+  &_date
+    text-align: center
+    margin: 0 auto 6rem
+  &_data
+    margin-bottom: 5.5rem
+    width: 110rem
+    display: flex
+    justify-content: space-between
+    &-title
+      +gilroy_medium
+      color: $color-red
+      font-size: 3.6rem
+      margin-bottom: 3.2rem
+    &-column
+      &_left
+        width: 35.2rem
+      &_right
+        width: 50rem
+    &-block
+      display: flex
+      justify-content: space-between
+  &_additional
+    &-name, &-phone
+      display: flex
+    &-textTitle
+      +gilroy_medium
+      font-size: 1.8rem
+      margin-right: 1.5rem
+      margin-bottom: 0.5rem
+    &-item
+      &:not(:last-child)
+        margin-bottom: 1rem
+  &_additional, &_info
+    display: none
+    &.active
+      display: block
+
+  &_button
+    button
+      margin: 0 auto
+
+
+@media (max-width: 1190px)
+  .header-booked
+    &_block
+      width: 99%
+    &_data
+      width: 100%
+      &-subcolumn
+
+@media (max-width: 1060px)
+  .header
+    &-booked
+      &_data
+        &-block
+          flex-direction: column
+        &-column
+          width: 50%
+
+@media (max-width: 680px)
+  .header
+    &-booked
+      &_data
+        flex-direction: column
+        &-column
+          width: 100%
+          &_left
+            margin-bottom: 2rem

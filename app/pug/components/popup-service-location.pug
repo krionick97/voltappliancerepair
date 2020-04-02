@@ -1,10 +1,19 @@
-section.popup-service-location.active
+section.popup-service-location
   div.popup-service-location__block
     div.popup-service-location__bg
-    div.popup-service-location__data
-      p.popup-service-location__data_title The SMS-code was sent on your phone number.<br>Please push the button "Send" and type the code from your phone in the field below
-      input(type="text").popup-service-location__data_input
-      div.popup-service-location__data_buttons
+    div.popup-service-location__data.popup-service-location__data_send
+      p.popup-service-location__data_title On your phone number (333) 333-3333 will be sent the code for confirming
+      div.popup-service-location__data_buttons.popup-service-location__data_buttons-send
         button.btn Cancel
         button.btn Send
+    div.popup-service-location__data.popup-service-location__data_code
+      p.popup-service-location__data_title On your phone number (333) 333-3333 was sent the SMS. Please type code from SMS
+      input(type="text" placeholder="Type code").popup-service-location__data_input
+      div.popup-service-location__data_buttons.popup-service-location__data_buttons-code
+        button.btn Change Phone
+        button.btn OK
+    div.popup-service-location__data.popup-service-location__data_thank
+      p.popup-service-location__data_title.popup-service-location__data_title-thank Thank You!
+      div.popup-service-location__data_buttons.popup-service-location__data_buttons-thank
+        button.btn OK
 

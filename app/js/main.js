@@ -100,6 +100,15 @@ const addPhonesTitle = document.querySelector('.header-location_add-title');
 const addPhoneButton = document.querySelector('.header-location_add-phones-btn > button');
 const addPhonesBlock = document.querySelector('.header-location_add-phones');
 
+const inputCode = document.querySelector('.popup-service-location__data_input');
+const popupServiceLocation = document.querySelector('.popup-service-location');
+const popupServiceLocationData = document.querySelectorAll('.popup-service-location__data');
+const popupServiceLocationButtonCancel = document.querySelector('.popup-service-location__data_buttons-send > button:first-child');
+const popupServiceLocationButtonSend = document.querySelector('.popup-service-location__data_buttons-send > button:last-child');
+const popupServiceLocationButtonChangePhone = document.querySelector('.popup-service-location__data_buttons-code > button:first-child');
+const popupServiceLocationButtonOk = document.querySelector('.popup-service-location__data_buttons-code > button:last-child');
+const popupServiceLocationButtonThankOk = document.querySelector('.popup-service-location__data_buttons-thank > button');
+
 const dayAvailableTimes = document.querySelectorAll('.header-when_day-time');
 
 const problemTitle = document.querySelector('.header-issue_problems-title');
@@ -154,42 +163,52 @@ if (nextStepButton_2) {
         descriptionProblem.style.borderColor = '#FF3737';
         problemTitle.style.color = '#FF3737';
         problemLine.style.backgroundColor = '#FF3737';
-        isReady = false;
+        // isReady = false;
       } else {
         descriptionProblem.style.borderColor = '#8E8E93';
         problemTitle.style.color = '#162230';
         problemLine.style.backgroundColor = '#162230';
         selectedProblem = true;
-        isReady = true;
+        // isReady = true;
     }
     if (typeText.textContent === '\xa0') {
         applianceTypeBlock.style.borderColor = '#FF3737';
-        isReady = false;
+        // isReady = false;
     } else {
         applianceTypeBlock.style.borderColor = '#8E8E93';
-        isReady = true;
+        // isReady = true;
     }
     if (brandText.textContent === '\xa0') {
         applianceBrandBlock.style.borderColor = '#FF3737';
-        isReady = false;
+        // isReady = false;
     } else {
       if (!applianceBrandListInput.classList.contains('active')) {
         applianceBrandBlock.style.borderColor = '#8E8E93';
-        isReady = true;
+        // isReady = true;
       }
       else {
         if (applianceBrandListInput.value === '') {
           applianceBrandBlock.style.borderColor = '#FF3737';
-          isReady = false;
+          // isReady = false;
           // warningText_2.classList.add('active');
           // warningText_2.textContent = 'Note the Brand';  
         }
         else {
           applianceBrandBlock.style.borderColor = '#8E8E93';
-          isReady = true;
+          // isReady = true;
         }
       }
     }
+
+    if (selectedProblem === false && descriptionProblem.value === ''
+        || typeText.textContent === '\xa0'
+        || brandText.textContent === '\xa0'
+        || applianceBrandListInput.classList.contains('active') && applianceBrandListInput.value === '') {
+          isReady = false;
+        } else {
+          isReady = true;
+        }
+
     if (isReady) {
       //next step
     }
@@ -201,12 +220,10 @@ if (scheduleServiceBtn) {
   scheduleServiceBtn.addEventListener('click', function() {
     let isReady = false;
     let streetInput = locationStreet.querySelector('input');
-    // let unitInput = locationUnit.querySelector('input');
     let cityInput = locationCity.querySelector('input');
     let zipInput = locationZip.querySelector('input');
     let firstNameInput = contactFirstName.querySelector('input');
     let lastNameInput = contactLastName.querySelector('input');
-    // let emailInput = contactEmail.querySelector('input');
     let state = stateListText.querySelector('p');
 
     let addNameInputs = document.querySelectorAll('.header-location_add-name > input');
@@ -214,98 +231,112 @@ if (scheduleServiceBtn) {
 
     if (streetInput.value === '') {
       streetInput.style.borderColor = '#FF3737';
-      isReady = false;
+      // isReady = false;
     } else {
       streetInput.style.borderColor = '#162230';
-      isReady = true;
+      // isReady = true;
     }
-    // if (unitInput.value === '') {
-    //   unitInput.style.borderColor = '#FF3737';
-    //   isReady = false;
-    // } else {
-    //   unitInput.style.borderColor = '#162230';
-    //   isReady = true;
-    // }
     if (cityInput.value === '') {
       cityInput.style.borderColor = '#FF3737';
-      isReady = false;
+      // isReady = false;
     } else {
       cityInput.style.borderColor = '#162230';
-      isReady = true;
+      // isReady = true;
     }
     if (zipInput.value === '') {
       zipInput.style.borderColor = '#FF3737';
-      isReady = false;
+      // isReady = false;
     } else {
       zipInput.style.borderColor = '#162230';
-      isReady = true;
+      // isReady = true;
     }
     if (firstNameInput.value === '') {
       firstNameInput.style.borderColor = '#FF3737';
-      isReady = false;
+      // isReady = false;
     } else {
       firstNameInput.style.borderColor = '#162230';
-      isReady = true;
+      // isReady = true;
     }
     if (lastNameInput.value === '') {
       lastNameInput.style.borderColor = '#FF3737';
-      isReady = false;
+      // isReady = false;
     } else {
       lastNameInput.style.borderColor = '#162230';
-      isReady = true;
+      // isReady = true;
     }
     if (contactInputPhone.value === '' || contactInputPhone.value.length < 17) {
       contactInputPhone.style.borderColor = '#FF3737';
-      isReady = false;
+      // isReady = false;
     } else {
       contactInputPhone.style.borderColor = '#162230';
-      isReady = true;
+      // isReady = true;
     }
-    // if (correctEmail(emailInput) !== true) {
-    //   emailInput.style.borderColor = '#FF3737';
-    //   isReady = false;
-    // } else {
-    //   emailInput.style.borderColor = '#162230';
-    //   isReady = true;
-    // }
     if (state.textContent === '\xa0') {
       stateList.style.borderColor = '#FF3737';
-      isReady = false;
+      // isReady = false;
     } else {
       stateList.style.borderColor = '#162230';
-      isReady = true;
+      // isReady = true;
     }
 
     if (addNameInputs && addPhoneInputs) {
       addNameInputs.forEach(addNameInput => {
         if (addNameInput.value === '') {
           addNameInput.style.borderColor = '#FF3737';
-          isReady = false;
+          // isReady = false;
         } else {
           addNameInput.style.borderColor = '#162230';
-          isReady = true;
+          // isReady = true;
         }
       });
       addPhoneInputs.forEach(addPhoneInput => {
         if (addPhoneInput.value === '' || addPhoneInput.value.length < 17) {
           addPhoneInput.style.borderColor = '#FF3737';
-          isReady = false;
+          // isReady = false;
         } else {
           addPhoneInput.style.borderColor = '#162230';
-          isReady = true;
+          // isReady = true;
         }
       });
     }
 
-    if (isReady) {
-      // schedule service button
-      console.log('service button ');
-    }
+    if (streetInput.value === ''
+        || cityInput.value === ''
+        || zipInput.value === ''
+        || firstNameInput.value === ''
+        || lastNameInput.value === ''
+        || contactInputPhone.value === '' || contactInputPhone.value.length < 17
+        || state.textContent === '\xa0') {
+          isReady = false;
+        } else {
+          isReady = true;
+          if (addNameInputs && addPhoneInputs) {
+            addNameInputs.forEach(addNameInput => {
+              if (addNameInput.value === '') {
+                isReady = false;
+              } else {
+                isReady = true;
+              }
+            });
+            addPhoneInputs.forEach(addPhoneInput => {
+              if (addPhoneInput.value === '' || addPhoneInput.value.length < 17) {
+                isReady = false;
+              } else {
+                isReady = true;
+              }
+            });      
+          } else {
+            isReady = true;
+          }
+        }
 
+    if (isReady) {
+      if (!popupServiceLocation.classList.contains('active')) { popupServiceLocation.classList.add('active'); }
+      if (!popupServiceLocationData[0].classList.contains('active')) { popupServiceLocationData[0].classList.add('active'); }
+    }
   });
 }
 
-// addPhonesBlock
 
 if (addPhoneButton) {
   addPhoneButton.addEventListener('click', function() {
@@ -371,6 +402,12 @@ function correctPhoneNumber(inputItem) {
         else {new_value += value.substring(i,i+1);}
     }
     inputItem.value = new_value;
+}
+
+function correctCode(inputItem) {
+  let value = inputItem.value;
+  value = value.replace(/\D+/g, '');
+  inputItem.value = value;
 }
 
 let correctEmail = function (emailInput) {
@@ -628,6 +665,47 @@ if (contactInputPhone) {
     correctPhoneNumber(contactInputPhone);
   });
 }
+
+if (popupServiceLocation) {
+  popupServiceLocationButtonCancel.addEventListener('click', function() {
+    if (popupServiceLocation.classList.contains('active')) { popupServiceLocation.classList.remove('active'); }
+    popupServiceLocationData.forEach(popupServiceLocationDataItem => {
+      if (popupServiceLocationDataItem.classList.contains('active')) { popupServiceLocationDataItem.classList.remove('active'); }
+    });
+  });
+  popupServiceLocationButtonSend.addEventListener('click', function() {
+    if (popupServiceLocationData[0].classList.contains('active')) { popupServiceLocationData[0].classList.remove('active'); }
+    if (!popupServiceLocationData[1].classList.contains('active')) { popupServiceLocationData[1].classList.add('active'); }
+  });
+  popupServiceLocationButtonChangePhone.addEventListener('click', function() {
+    if (popupServiceLocation.classList.contains('active')) { popupServiceLocation.classList.remove('active'); }
+    popupServiceLocationData.forEach(popupServiceLocationDataItem => {
+      if (popupServiceLocationDataItem.classList.contains('active')) { popupServiceLocationDataItem.classList.remove('active'); }
+    });
+    inputCode.value = '';
+  });
+  popupServiceLocationButtonOk.addEventListener('click', function() {
+    if (inputCode.value === '') { inputCode.style.borderColor = '#FF3737'; }
+    else {
+      inputCode.style.borderColor = '#162230';
+      if (popupServiceLocationData[0].classList.contains('active')) { popupServiceLocationData[0].classList.remove('active'); }
+      if (popupServiceLocationData[1].classList.contains('active')) { popupServiceLocationData[1].classList.remove('active'); }  
+      if (!popupServiceLocationData[2].classList.contains('active')) { popupServiceLocationData[2].classList.add('active'); }
+      inputCode.value = '';
+    }
+  });
+  popupServiceLocationButtonThankOk.addEventListener('click', function() {
+    if (popupServiceLocation.classList.contains('active')) { popupServiceLocation.classList.remove('active'); }
+    popupServiceLocationData.forEach(popupServiceLocationDataItem => {
+      if (popupServiceLocationDataItem.classList.contains('active')) { popupServiceLocationDataItem.classList.remove('active'); }
+    });
+    inputCode.value = '';
+  });
+  inputCode.addEventListener('input', function() {
+    correctCode(inputCode);
+  });
+}
+
 
 
 window.addEventListener('click', function(event) {
