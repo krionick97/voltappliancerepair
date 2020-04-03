@@ -20,8 +20,20 @@
     font-size: 3.6rem
     color: $color-red
     text-align: center
-    margin-top: 9.6rem
-    margin-bottom: 13.3rem
+    line-height: 1.2
+    margin: 9.6rem auto 2rem
+    max-width: 120rem
+    &-subtitle
+      margin: 0 auto 10rem
+      text-align: center
+      font-size: 2.6rem
+      +gilroy_medium
+      line-height: 1.2
+      span
+        +gilroy_bold
+    &-button
+      button
+        margin: 0 auto
   &_scale
     margin: 0 auto 3.5rem
   &_linkBlock
@@ -231,9 +243,14 @@
   .header-when
     &_not-served
       margin-top: 6rem
-      margin-bottom: 8rem
+      margin-bottom: 6rem
       margin-left: auto
       margin-right: auto
+      &-subtitle
+        // font-size: 2.4rem
+        max-width: 25rem
+        margin: 0 auto 8rem
+
 
 @media (max-width: 780px)
   .header-when
@@ -273,9 +290,14 @@
   .header-when
     &_not-served
       width: 70%
-      font-size: 2.4rem
+      font-size: 2.2rem
       margin-top: 4rem
-      margin-bottom: 6rem
+      margin-bottom: 4rem
+      &-subtitle
+        font-size: 2.4rem
+        max-width: 20rem
+        margin: 0 auto 6rem
+
     &_block
       padding: 3rem 2rem
     &_title

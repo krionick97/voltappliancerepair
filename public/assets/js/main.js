@@ -100,7 +100,7 @@ const addPhonesTitle = document.querySelector('.header-location_add-title');
 const addPhoneButton = document.querySelector('.header-location_add-phones-btn > button');
 const addPhonesBlock = document.querySelector('.header-location_add-phones');
 
-const inputCode = document.querySelector('.popup-service-location__data_input');
+const inputCode = document.querySelector('.popup-service-location__data_input > input');
 const popupServiceLocation = document.querySelector('.popup-service-location');
 const popupServiceLocationData = document.querySelectorAll('.popup-service-location__data');
 const popupServiceLocationButtonCancel = document.querySelector('.popup-service-location__data_buttons-send > button:first-child');
@@ -108,6 +108,7 @@ const popupServiceLocationButtonSend = document.querySelector('.popup-service-lo
 const popupServiceLocationButtonChangePhone = document.querySelector('.popup-service-location__data_buttons-code > button:first-child');
 const popupServiceLocationButtonOk = document.querySelector('.popup-service-location__data_buttons-code > button:last-child');
 const popupServiceLocationButtonThankOk = document.querySelector('.popup-service-location__data_buttons-thank > button');
+const popupServiceLocationError = document.querySelector('.popup-service-location__data_error');
 
 const dayAvailableTimes = document.querySelectorAll('.header-when_day-time');
 
@@ -682,16 +683,26 @@ if (popupServiceLocation) {
     popupServiceLocationData.forEach(popupServiceLocationDataItem => {
       if (popupServiceLocationDataItem.classList.contains('active')) { popupServiceLocationDataItem.classList.remove('active'); }
     });
+    if (popupServiceLocationError.classList.contains('active')) { popupServiceLocationError.classList.remove('active'); }
     inputCode.value = '';
+    inputCode.style.borderColor = '#162230';
   });
   popupServiceLocationButtonOk.addEventListener('click', function() {
+    let correctCode = false;
     if (inputCode.value === '') { inputCode.style.borderColor = '#FF3737'; }
     else {
-      inputCode.style.borderColor = '#162230';
-      if (popupServiceLocationData[0].classList.contains('active')) { popupServiceLocationData[0].classList.remove('active'); }
-      if (popupServiceLocationData[1].classList.contains('active')) { popupServiceLocationData[1].classList.remove('active'); }  
-      if (!popupServiceLocationData[2].classList.contains('active')) { popupServiceLocationData[2].classList.add('active'); }
-      inputCode.value = '';
+      if (correctCode) {
+        inputCode.style.borderColor = '#162230';
+        if (popupServiceLocationData[0].classList.contains('active')) { popupServiceLocationData[0].classList.remove('active'); }
+        if (popupServiceLocationData[1].classList.contains('active')) { popupServiceLocationData[1].classList.remove('active'); }  
+        if (!popupServiceLocationData[2].classList.contains('active')) { popupServiceLocationData[2].classList.add('active'); }
+        if (popupServiceLocationError.classList.contains('active')) { popupServiceLocationError.classList.remove('active'); }
+        inputCode.value = '';
+      } else {
+        inputCode.style.borderColor = '#FF3737';
+        inputCode.value = '';
+        if (!popupServiceLocationError.classList.contains('active')) { popupServiceLocationError.classList.add('active'); }
+      }
     }
   });
   popupServiceLocationButtonThankOk.addEventListener('click', function() {

@@ -145,12 +145,24 @@
       display: block
       width: 50%
       margin: 0 auto 3rem
-      border: 0.1rem solid $color-dark
-      border-radius: 0.3rem
-      outline: none
-      +gilroy_regular
-      font-size: 1.8rem
-      padding: 0.3rem 0.5rem
+      input
+        width: 100%
+        box-sizing: border-box
+        border: 0.1rem solid $color-dark
+        border-radius: 0.3rem
+        outline: none
+        +gilroy_regular
+        font-size: 1.8rem
+        padding: 0.3rem 0.5rem
+    &_error
+      margin-top: 0.5rem
+      font-size: 1.6rem
+      +gilroy_medium
+      color: $color-red
+      display: none
+      &.active
+        display: block
+
     &.active
       display: block
 

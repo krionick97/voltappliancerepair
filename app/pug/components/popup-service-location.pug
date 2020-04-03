@@ -8,7 +8,9 @@ section.popup-service-location
         button.btn Send
     div.popup-service-location__data.popup-service-location__data_code
       p.popup-service-location__data_title On your phone number (333) 333-3333 was sent the SMS. Please type code from SMS
-      input(type="text" placeholder="Type code").popup-service-location__data_input
+      div.popup-service-location__data_input
+        input(type="text" placeholder="Type code")
+        p.popup-service-location__data_error Please type the correct code!
       div.popup-service-location__data_buttons.popup-service-location__data_buttons-code
         button.btn Change Phone
         button.btn OK
