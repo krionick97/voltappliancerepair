@@ -1,0 +1,74 @@
+.header-site-map
+  &_block
+    padding: 6.5rem 6.9rem
+    box-sizing: border-box
+    width: 110rem
+  &_title
+    margin-bottom: 5.5rem
+  &_links
+    width: fit-content
+    margin-bottom: 4.5rem
+
+.site-map-link
+  margin-bottom: 1rem
+  a
+    margin-left: 1.6rem
+    font-size: 2.3rem
+    +gilroy_medium
+    color: $color-dark
+    text-decoration: none
+    transition: 0.1s
+    position: relative
+    &:hover
+      // transform: translateY(1rem)
+      text-decoration: underline
+    &:active
+      color: $color-red
+    &:before
+      position: absolute
+      content: ''
+      display: block
+      width: 1rem
+      height: 1rem
+      border-radius: 50%
+      background-color: $color-red
+      left: -1.55rem
+      top: 0.85rem
+  div
+    margin-top: 1rem
+    margin-left: 1.8rem
+
+@media (max-width: 1100px)
+  .header-site-map
+    &_block
+      width: 99%
+
+@media (max-width: 780px)
+  .header-site-map
+    &_block
+      padding: 6rem 4rem
+    &_title
+      margin-bottom: 4rem
+  .site-map-link
+    a
+      font-size: 2rem
+      line-height: 1.2
+      &:before
+        width: 0.8rem
+        height: 0.8rem
+        top: 0.75rem
+
+
+@media (max-width: 380px)
+  .header-site-map
+    &_block
+      padding: 5rem 3rem
+  .site-map-link
+    a
+      font-size: 1.8rem
+      &:before
+        width: 0.6rem
+        height: 0.6rem
+        // top: 0.7rem
+
+

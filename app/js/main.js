@@ -17,6 +17,7 @@ function stopSlider() {
 }
 
 const zipCodeInputs = document.querySelectorAll('.zip-input');
+const phoneInputs = document.querySelectorAll('.phone-input');
 
 const scheduleList_1 = document.querySelector('.schedule_list-1');
 const scheduleListText_1 = document.querySelector('.schedule_list-text-1');
@@ -52,6 +53,21 @@ const stateListText = document.querySelector('.header-location_state-listText');
 const stateListArrow = document.querySelector('.header-location_state-listArrow');
 const stateListItems = document.querySelector('.header-location_state-listItems');
 const stateListItem = document.querySelectorAll('.header-location_state-listItem');
+
+const contactStateList = document.querySelector('.header-contact_state-list');
+const contactStateListText = document.querySelector('.header-contact_state-listText');
+const contactStateListArrow = document.querySelector('.header-contact_state-listArrow');
+const contactStateListItems = document.querySelector('.header-contact_state-listItems');
+const contactStateListItem = document.querySelectorAll('.header-contact_state-listItem');
+
+const contactMethodList = document.querySelector('.header-contact_method-list');
+const contactMethodListText = document.querySelector('.header-contact_method-listText');
+const contactMethodListArrow = document.querySelector('.header-contact_method-listArrow');
+const contactMethodListItems = document.querySelector('.header-contact_method-listItems');
+const contactMethodListItem = document.querySelectorAll('.header-contact_method-listItem');
+
+const contactSubmitButton = document.querySelector('.header-contact_button > button');
+
 const contactInputPhone = document.querySelector('.header-location_data-phone > input');
 
 const locationStreet = document.querySelector('.header-location_data-street');
@@ -338,7 +354,6 @@ if (scheduleServiceBtn) {
   });
 }
 
-
 if (addPhoneButton) {
   addPhoneButton.addEventListener('click', function() {
     if (!addPhonesTitle.classList.contains('active')) { addPhonesTitle.classList.add('active'); }
@@ -387,6 +402,65 @@ if (addPhoneButton) {
   });
 }
 
+if (contactSubmitButton) {
+  contactSubmitButton.addEventListener('click', function() {
+    let isReady = false;
+    let firstNameInput = document.querySelector('.header-contact_data-firstName > input');
+    let lastNameInput = document.querySelector('.header-contact_data-lastName > input');
+    let phoneInput = document.querySelector('.header-contact_data-phone > input');
+    let streetInput = document.querySelector('.header-contact_data-street > input');
+    let stateListText = contactStateListText.querySelector('p');
+    let cityInput = document.querySelector('.header-contact_data-city > input');
+    let zipInput = document.querySelector('.header-contact_data-zip > input');
+    let messageTextarea = document.querySelector('.header-contact_data-message > textarea');
+    let methodListText = contactMethodListText.querySelector('p');
+
+    if (firstNameInput.value === '') { firstNameInput.style.borderColor = '#FF3737'; }
+    else { firstNameInput.style.borderColor = '#162230'; }
+
+    if (lastNameInput.value === '') { lastNameInput.style.borderColor = '#FF3737'; }
+    else { lastNameInput.style.borderColor = '#162230'; }
+
+    if (phoneInput.value === '' || phoneInput.value.length < 17) { phoneInput.style.borderColor = '#FF3737'; }
+    else { phoneInput.style.borderColor = '#162230'; }
+
+    if (streetInput.value === '') { streetInput.style.borderColor = '#FF3737'; }
+    else { streetInput.style.borderColor = '#162230'; }
+
+    if (stateListText.textContent === '\xa0') { contactStateList.style.borderColor = '#FF3737'; }
+    else { contactStateList.style.borderColor = '#162230'; }
+    
+    if (methodListText.textContent === '-Select-') { contactMethodList.style.borderColor = '#FF3737'; }
+    else { contactMethodList.style.borderColor = '#162230'; }
+    
+    if (cityInput.value === '') { cityInput.style.borderColor = '#FF3737'; }
+    else { cityInput.style.borderColor = '#162230'; }
+
+    if (zipInput.value === '' || zipInput.value.length < 5) { zipInput.style.borderColor = '#FF3737'; }
+    else { zipInput.style.borderColor = '#162230'; }
+
+    if (messageTextarea.value === '') { messageTextarea.style.borderColor = '#FF3737'; }
+    else { messageTextarea.style.borderColor = '#162230'; }
+
+    if (firstNameInput.value === ''
+        || lastNameInput.value === ''
+        || phoneInput.value === '' || phoneInput.value.length < 17
+        || streetInput.value === ''
+        || stateListText.textContent === '\xa0'
+        || methodListText.textContent === '-Select-'
+        || cityInput.value === ''
+        || zipInput.value === '' || zipInput.value.length < 5
+        || messageTextarea.value === '') { isReady = false; } 
+      else { isReady = true; }
+
+    if (isReady === true) {
+      // button Submit
+      // console.log('Submit');
+    }
+
+  });
+}
+
 
 function correctPhoneNumber(inputItem) {
   let value = inputItem.value;
@@ -403,6 +477,14 @@ function correctPhoneNumber(inputItem) {
         else {new_value += value.substring(i,i+1);}
     }
     inputItem.value = new_value;
+}
+
+if (phoneInputs) {
+  phoneInputs.forEach(phoneInput => {
+    phoneInput.addEventListener('input', function() {
+      correctPhoneNumber(phoneInput);
+    });
+  });
 }
 
 function correctCode(inputItem) {
@@ -566,11 +648,13 @@ function correctZipCode(inputItem) {
   else { newValue = value.substring(0, 5); }
   inputItem.value = newValue;
 }
-zipCodeInputs.forEach(zipCodeInput => {
-  zipCodeInput.addEventListener('input', function(){
-    correctZipCode(zipCodeInput);
+if (zipCodeInputs) {
+  zipCodeInputs.forEach(zipCodeInput => {
+    zipCodeInput.addEventListener('input', function(){
+      correctZipCode(zipCodeInput);
+    });
   });
-});
+}
 /* ------------------ */
 
 function listOpenFunction(arrow, list, itemsList, text, items, input) {
@@ -633,6 +717,8 @@ listOpenFunction(scheduleListArrow_2, scheduleList_2, scheduleListItemsList_2, s
 listOpenFunction(applianceTypeListArrow, applianceTypeList, applianceTypeListItems, applianceTypeListText, applianceTypeListItem);
 listOpenFunction(applianceBrandListArrow, applianceBrandList, applianceBrandListItems, applianceBrandListText, applianceBrandListItem, applianceBrandListInput);
 listOpenFunction(stateListArrow, stateList, stateListItems, stateListText, stateListItem);
+listOpenFunction(contactStateListArrow, contactStateList, contactStateListItems, contactStateListText, contactStateListItem);
+listOpenFunction(contactMethodListArrow, contactMethodList, contactMethodListItems, contactMethodListText, contactMethodListItem);
 
 
 function checkScheduleButtonFunction(btn, zip, listText, list) {
@@ -661,11 +747,11 @@ problemItems.forEach(problemItem => {
   });
 });
 
-if (contactInputPhone) {
-  contactInputPhone.addEventListener('input', function() {
-    correctPhoneNumber(contactInputPhone);
-  });
-}
+// if (contactInputPhone) {
+//   contactInputPhone.addEventListener('input', function() {
+//     correctPhoneNumber(contactInputPhone);
+//   });
+// }
 
 if (popupServiceLocation) {
   popupServiceLocationButtonCancel.addEventListener('click', function() {
@@ -726,6 +812,8 @@ window.addEventListener('click', function(event) {
   let applianceTypeListClosest = target.closest('.appliance-type-list');
   let applianceBrandListClosest = target.closest('.appliance-brand-list');
   let stateListClosest = target.closest('.header-location_state-list');
+  let contactStateListClosest = target.closest('.header-contact_state-list');
+  let contactMethodListClosest = target.closest('.header-contact_method-list');
 
   function listCloseOutsideFunction(listClosest, itemsList, arrow) {
     if (listClosest) { return; }
@@ -742,6 +830,8 @@ window.addEventListener('click', function(event) {
   listCloseOutsideFunction(applianceTypeListClosest, applianceTypeListItems, applianceTypeListArrow);
   listCloseOutsideFunction(applianceBrandListClosest, applianceBrandListItems, applianceBrandListArrow);
   listCloseOutsideFunction(stateListClosest, stateListItems, stateListArrow);
+  listCloseOutsideFunction(contactStateListClosest, contactStateListItems, contactStateListArrow);
+  listCloseOutsideFunction(contactMethodListClosest, contactMethodListItems, contactMethodListArrow);
 
 });
 
