@@ -66,6 +66,20 @@ const contactMethodListArrow = document.querySelector('.header-contact_method-li
 const contactMethodListItems = document.querySelector('.header-contact_method-listItems');
 const contactMethodListItem = document.querySelectorAll('.header-contact_method-listItem');
 
+const blogCategoriesList = document.querySelector('.blog__categories-list');
+const blogCategoriesListText = document.querySelector('.blog__categories-listText');
+const blogCategoriesListArrow = document.querySelector('.blog__categories-listArrow');
+const blogCategoriesListItems = document.querySelector('.blog__categories-listItems');
+const blogCategoriesListItem = document.querySelectorAll('.blog__categories-listItem');
+
+const blogArchivesListBlock = document.querySelector('.blog__archives-listBlock');
+
+const blogArchivesList = document.querySelector('.blog__archives-list');
+const blogArchivesListText = document.querySelector('.blog__archives-listText');
+const blogArchivesListArrow = document.querySelector('.blog__archives-listArrow');
+const blogArchivesListItems = document.querySelector('.blog__archives-listItems');
+const blogArchivesListItem = document.querySelectorAll('.blog__archives-listItem');
+
 const contactSubmitButton = document.querySelector('.header-contact_button > button');
 
 const contactInputPhone = document.querySelector('.header-location_data-phone > input');
@@ -698,8 +712,10 @@ function listOpenFunction(arrow, list, itemsList, text, items, input) {
       item.addEventListener('click', function() {
         if (!item.classList.contains('selected')) {
           item.classList.add('selected');
-          mainText.textContent = itemText.textContent;
-          // arrowOpenFunction();
+          if (itemText) {
+            mainText.textContent = itemText.textContent;
+            // arrowOpenFunction();
+          }
         }
         if (arrow.classList.contains('open')) { arrow.classList.remove('open'); }
         itemsList.classList.toggle('visible');      
@@ -726,7 +742,6 @@ function listOpenFunction(arrow, list, itemsList, text, items, input) {
   }
 }
 
-
 // listOpenFunction(arrow, list, itemsList, text, items)
 listOpenFunction(scheduleListArrow_1, scheduleList_1, scheduleListItemsList_1, scheduleListText_1, scheduleListItems_1);
 listOpenFunction(scheduleListArrow_2, scheduleList_2, scheduleListItemsList_2, scheduleListText_2, scheduleListItems_2);
@@ -735,7 +750,19 @@ listOpenFunction(applianceBrandListArrow, applianceBrandList, applianceBrandList
 listOpenFunction(stateListArrow, stateList, stateListItems, stateListText, stateListItem);
 listOpenFunction(contactStateListArrow, contactStateList, contactStateListItems, contactStateListText, contactStateListItem);
 listOpenFunction(contactMethodListArrow, contactMethodList, contactMethodListItems, contactMethodListText, contactMethodListItem);
+listOpenFunction(blogCategoriesListArrow, blogCategoriesList, blogCategoriesListItems, blogCategoriesListText, blogCategoriesListItem);
+// listOpenFunction(blogArchivesListArrow, blogArchivesList, blogArchivesListItems, blogArchivesListText, blogArchivesListItem);
 
+// if (blogArchivesListBlock) {
+//   let itemsList = blogArchivesListBlock.querySelector('.blog__archives-listItems');
+//   let listItems = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem');
+//   let yearBlocks = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem_year');
+//   yearBlocks.forEach(yearBlock => {
+//     yearBlock.addEventListener('click', function() {
+//       if (!itemsList.classList.contains('visible')) { itemsList.classList.add('visible'); }
+//     });
+//   });
+// }
 
 function checkScheduleButtonFunction(btn, zip, listText, list) {
   if (btn && list && zip) {
@@ -820,7 +847,6 @@ if (popupServiceLocation) {
 }
 
 
-
 window.addEventListener('click', function(event) {
   let target = event.target;
   let scheduleListClosest_1 = target.closest('.schedule_list-1');
@@ -830,6 +856,8 @@ window.addEventListener('click', function(event) {
   let stateListClosest = target.closest('.header-location_state-list');
   let contactStateListClosest = target.closest('.header-contact_state-list');
   let contactMethodListClosest = target.closest('.header-contact_method-list');
+  let blogCategoriesListClosest = target.closest('.blog__categories-list');
+  let blogArchivesListClosest = target.closest('.blog__archives-list');
 
   function listCloseOutsideFunction(listClosest, itemsList, arrow) {
     if (listClosest) { return; }
@@ -848,6 +876,8 @@ window.addEventListener('click', function(event) {
   listCloseOutsideFunction(stateListClosest, stateListItems, stateListArrow);
   listCloseOutsideFunction(contactStateListClosest, contactStateListItems, contactStateListArrow);
   listCloseOutsideFunction(contactMethodListClosest, contactMethodListItems, contactMethodListArrow);
+  listCloseOutsideFunction(blogCategoriesListClosest, blogCategoriesListItems, blogCategoriesListArrow);
+  listCloseOutsideFunction(blogArchivesListClosest, blogArchivesListItems, blogArchivesListArrow);
 
 });
 
