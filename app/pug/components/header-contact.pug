@@ -44,17 +44,6 @@ header.header.header-when
     img(src="assets/images/triangles-bg.png", alt="Triangles-bg")
 
   div.header-when_block.header-location_block
-    //- div.header-scale.header-scale-1.header-when_scale
-    //-   <svg viewBox="0 0 172 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    //-     <circle cx="160" cy="12" r="7" fill="#FF3737"/>
-    //-     <circle cx="160" cy="12" r="11.5" stroke="#FF3737"/>
-    //-     <path d="M98 12H148" stroke="#FF3737"/>
-    //-     <circle cx="86" cy="12" r="7" fill="#FF3737"/>
-    //-     <circle cx="86" cy="12" r="11.5" stroke="#FF3737"/>
-    //-     <path d="M24 12H74" stroke="#FF3737"/>
-    //-     <circle cx="12" cy="12" r="7" fill="#FF3737"/>
-    //-     <circle cx="12" cy="12" r="11.5" stroke="#FF3737"/>
-    //-   </svg>
 
     p.header-when_title.header-location_title Contact Us
 
@@ -89,6 +78,11 @@ header.header.header-when
               div.header-location_data-item.header-location_data-unit.header-contact_data-unit
                 label Unit / Apt:
                 input(type="text")
+              div.header-location_data-item.header-location_data-city.header-contact_data-city
+                label City:
+                input(type="text")
+
+            div.header-location_data-column.header-location_data-column-right
               div.header-location_data-item.header-contact_data-state
                 label State:
                 div.list-block.header-contact_state-listBlock
@@ -213,10 +207,6 @@ header.header.header-when
                     div.list-item.header-contact_state-listItem
                       p Wyoming
 
-            div.header-location_data-column.header-location_data-column-right
-              div.header-location_data-item.header-location_data-city.header-contact_data-city
-                label City:
-                input(type="text")
               div.header-location_data-item.header-location_data-zip.header-contact_data-zip
                 label Zip Code:
                 input(type="text").zip-input
@@ -246,7 +236,7 @@ header.header.header-when
                   div.list-item.header-contact_method-listItem
                     p Email
                   div.list-item.header-contact_method-listItem
-                    p Text (standard fees apply)
+                    p Text
 
 
     div.header-contact_button

@@ -75,6 +75,9 @@ const locationStreet = document.querySelector('.header-location_data-street');
 const locationCity = document.querySelector('.header-location_data-city');
 const locationZip = document.querySelector('.header-location_data-zip');
 
+const locationsButtonClear = document.querySelector('.header-locations_sidebar-inputClear');
+const locationsZipInput = document.querySelector('.header-locations_sidebar-input > input');
+
 const contactFirstName = document.querySelector('.header-location_data-firstName');
 const contactLastName = document.querySelector('.header-location_data-lastName');
 // const contactEmail = document.querySelector('.header-location_data-email');
@@ -408,12 +411,13 @@ if (contactSubmitButton) {
     let firstNameInput = document.querySelector('.header-contact_data-firstName > input');
     let lastNameInput = document.querySelector('.header-contact_data-lastName > input');
     let phoneInput = document.querySelector('.header-contact_data-phone > input');
-    let streetInput = document.querySelector('.header-contact_data-street > input');
-    let stateListText = contactStateListText.querySelector('p');
-    let cityInput = document.querySelector('.header-contact_data-city > input');
-    let zipInput = document.querySelector('.header-contact_data-zip > input');
+    // let streetInput = document.querySelector('.header-contact_data-street > input');
+    // let stateListText = contactStateListText.querySelector('p');
+    // let cityInput = document.querySelector('.header-contact_data-city > input');
+    // let zipInput = document.querySelector('.header-contact_data-zip > input');
     let messageTextarea = document.querySelector('.header-contact_data-message > textarea');
     let methodListText = contactMethodListText.querySelector('p');
+    let emailInput = document.querySelector('.header-contact_data-email > input');
 
     if (firstNameInput.value === '') { firstNameInput.style.borderColor = '#FF3737'; }
     else { firstNameInput.style.borderColor = '#162230'; }
@@ -424,43 +428,55 @@ if (contactSubmitButton) {
     if (phoneInput.value === '' || phoneInput.value.length < 17) { phoneInput.style.borderColor = '#FF3737'; }
     else { phoneInput.style.borderColor = '#162230'; }
 
-    if (streetInput.value === '') { streetInput.style.borderColor = '#FF3737'; }
-    else { streetInput.style.borderColor = '#162230'; }
+    // if (streetInput.value === '') { streetInput.style.borderColor = '#FF3737'; }
+    // else { streetInput.style.borderColor = '#162230'; }
 
-    if (stateListText.textContent === '\xa0') { contactStateList.style.borderColor = '#FF3737'; }
-    else { contactStateList.style.borderColor = '#162230'; }
+    // if (stateListText.textContent === '\xa0') { contactStateList.style.borderColor = '#FF3737'; }
+    // else { contactStateList.style.borderColor = '#162230'; }
     
     if (methodListText.textContent === '-Select-') { contactMethodList.style.borderColor = '#FF3737'; }
     else { contactMethodList.style.borderColor = '#162230'; }
     
-    if (cityInput.value === '') { cityInput.style.borderColor = '#FF3737'; }
-    else { cityInput.style.borderColor = '#162230'; }
+    // if (cityInput.value === '') { cityInput.style.borderColor = '#FF3737'; }
+    // else { cityInput.style.borderColor = '#162230'; }
 
-    if (zipInput.value === '' || zipInput.value.length < 5) { zipInput.style.borderColor = '#FF3737'; }
-    else { zipInput.style.borderColor = '#162230'; }
+    // if (zipInput.value === '' || zipInput.value.length < 5) { zipInput.style.borderColor = '#FF3737'; }
+    // else { zipInput.style.borderColor = '#162230'; }
 
     if (messageTextarea.value === '') { messageTextarea.style.borderColor = '#FF3737'; }
     else { messageTextarea.style.borderColor = '#162230'; }
 
+    if (!correctEmail(emailInput)) { emailInput.style.borderColor = '#FF3737'; }
+    else { emailInput.style.borderColor = '#162230'; }
+
     if (firstNameInput.value === ''
         || lastNameInput.value === ''
         || phoneInput.value === '' || phoneInput.value.length < 17
-        || streetInput.value === ''
-        || stateListText.textContent === '\xa0'
+        // || streetInput.value === ''
+        // || stateListText.textContent === '\xa0'
         || methodListText.textContent === '-Select-'
-        || cityInput.value === ''
-        || zipInput.value === '' || zipInput.value.length < 5
+        || !correctEmail(emailInput)
+        // || cityInput.value === ''
+        // || zipInput.value === '' || zipInput.value.length < 5
         || messageTextarea.value === '') { isReady = false; } 
       else { isReady = true; }
 
     if (isReady === true) {
       // button Submit
-      // console.log('Submit');
+      console.log('Submit');
     }
 
   });
 }
 
+// const locationsButtonClear = document.querySelector('.header-locations_sidebar-inputClear');
+// const locationsZipInput = document.querySelector('.header-locations_sidebar-input > input');
+
+if (locationsButtonClear && locationsZipInput) {
+  locationsButtonClear.addEventListener('click', function() {
+    locationsZipInput.value = '';
+  });
+}
 
 function correctPhoneNumber(inputItem) {
   let value = inputItem.value;
@@ -834,7 +850,5 @@ window.addEventListener('click', function(event) {
   listCloseOutsideFunction(contactMethodListClosest, contactMethodListItems, contactMethodListArrow);
 
 });
-
-
 
 }); // end of code

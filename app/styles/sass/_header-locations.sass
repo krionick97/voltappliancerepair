@@ -1,0 +1,146 @@
+.header-locations
+  padding-top: 8.4rem
+  padding-bottom: 0
+  max-width: 192rem
+  margin: 0 auto
+  height: calc(100vh - 84px)
+  // height: 100vh
+  display: block
+  &_block
+    border-radius: 0
+    box-sizing: border-box
+    padding: 0
+    width: 100%
+    // height: 70rem
+    height: 100%
+    position: relative
+  &_sidebar
+    background-color: $color-white
+    width: 33rem
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    box-sizing: border-box
+    box-shadow: 0 0.4rem 0.4rem rgba($color-black, 0.25)
+    overflow: hidden
+
+    &-inputBlock
+      padding: 3rem 3.2rem 4rem
+      box-shadow: 0 0.4rem 0.4rem rgba($color-black, 0.25)
+    &-input
+      width: 100%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      position: relative
+      input
+        flex-grow: 1
+        height: 3.6rem
+        border-radius: 0.3rem
+        border: 0.1rem solid $color-dark
+        outline: none
+        font-size: 1.8rem
+        +gilroy_regular
+        box-sizing: border-box
+        padding: 0.7rem 1.2rem
+
+    &-inputTitle
+      font-size: 2.6rem
+      +gilroy_medium
+      margin-bottom: 0.7rem
+    &-inputSearch
+      width: 2.3rem
+      height: 2.4rem
+      margin-left: 1rem
+      user-select: none
+      transition: 0.1s
+      svg
+        width: 100%
+        height: 100%
+      &:hover
+        cursor: pointer
+      &:active
+        transform: translateY(0.05rem)
+    &-inputClear
+      width: 1.6rem
+      height: 1.6rem
+      position: absolute
+      right: 4.2rem
+      user-select: none
+      transition: 0.1s
+      svg
+        width: 100%
+        height: 100%
+      &:hover
+        cursor: pointer
+      &:active
+        transform: translateY(0.05rem)
+
+  &_items
+    height: calc(100% - 150px)
+    overflow-y: scroll
+    @include custom-scroll
+
+  &_item
+    padding: 2rem 3.2rem
+    border-bottom: 0.1rem solid $color-grey
+    &:hover
+      background-color: rgba($color-black, 0.04)
+    &-title
+      font-size: 1.6rem 
+      +gilroy_medium
+      color: $color-dark
+      margin-bottom: 0.8rem
+    &-text
+      font-size: 1.4rem
+      margin-bottom: 0.8rem
+    &-phone
+      display: block
+      font-size: 1.4rem
+      +gilroy_medium
+      margin-bottom: 0.8rem
+      text-decoration: none
+      color: $color-dark
+      &:hover
+        text-decoration: underline
+    &-links
+      width: 87%
+      justify-content: space-between
+      display: flex
+      a
+        +gilroy_bold
+        font-size: 1.4rem
+        color: $color-red
+        display: block
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+
+  &_map
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    iframe
+      width: 100%
+      height: 100%
+      frameborder: 0
+      border: 0
+      aria-hidden: false 
+      tabindex: 0
+
+@media (max-width: 650px)
+  .header-locations
+    &_block
+      display: flex
+      flex-direction: column-reverse
+    &_map, &_sidebar
+      position: static
+      width: 100%
+    &_item
+      &-links
+        width: 24rem
+
+
