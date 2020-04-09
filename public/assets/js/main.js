@@ -73,12 +73,13 @@ const blogCategoriesListItems = document.querySelector('.blog__categories-listIt
 const blogCategoriesListItem = document.querySelectorAll('.blog__categories-listItem');
 
 const blogArchivesListBlock = document.querySelector('.blog__archives-listBlock');
+const blogItemsArchivesList = document.querySelectorAll('.blog-item__archives-listBlock');
 
-const blogArchivesList = document.querySelector('.blog__archives-list');
-const blogArchivesListText = document.querySelector('.blog__archives-listText');
+// const blogArchivesList = document.querySelector('.blog__archives-list');
+// const blogArchivesListText = document.querySelector('.blog__archives-listText');
 const blogArchivesListArrow = document.querySelector('.blog__archives-listArrow');
 const blogArchivesListItems = document.querySelector('.blog__archives-listItems');
-const blogArchivesListItem = document.querySelectorAll('.blog__archives-listItem');
+// const blogArchivesListItem = document.querySelectorAll('.blog__archives-listItem');
 
 const contactSubmitButton = document.querySelector('.header-contact_button > button');
 
@@ -742,6 +743,7 @@ function listOpenFunction(arrow, list, itemsList, text, items, input) {
   }
 }
 
+
 // listOpenFunction(arrow, list, itemsList, text, items)
 listOpenFunction(scheduleListArrow_1, scheduleList_1, scheduleListItemsList_1, scheduleListText_1, scheduleListItems_1);
 listOpenFunction(scheduleListArrow_2, scheduleList_2, scheduleListItemsList_2, scheduleListText_2, scheduleListItems_2);
@@ -751,18 +753,109 @@ listOpenFunction(stateListArrow, stateList, stateListItems, stateListText, state
 listOpenFunction(contactStateListArrow, contactStateList, contactStateListItems, contactStateListText, contactStateListItem);
 listOpenFunction(contactMethodListArrow, contactMethodList, contactMethodListItems, contactMethodListText, contactMethodListItem);
 listOpenFunction(blogCategoriesListArrow, blogCategoriesList, blogCategoriesListItems, blogCategoriesListText, blogCategoriesListItem);
-// listOpenFunction(blogArchivesListArrow, blogArchivesList, blogArchivesListItems, blogArchivesListText, blogArchivesListItem);
 
-// if (blogArchivesListBlock) {
-//   let itemsList = blogArchivesListBlock.querySelector('.blog__archives-listItems');
-//   let listItems = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem');
-//   let yearBlocks = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem_year');
-//   yearBlocks.forEach(yearBlock => {
-//     yearBlock.addEventListener('click', function() {
-//       if (!itemsList.classList.contains('visible')) { itemsList.classList.add('visible'); }
-//     });
-//   });
-// }
+if (blogArchivesListBlock) {
+  function blogArchivesListOpenFunction() {
+    let itemsList = blogArchivesListBlock.querySelector('.blog__archives-listItems');
+    let itemBlocks = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem_block');
+    let itemMonths = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem_months');
+    let arrow = blogArchivesListBlock.querySelector('.blog__archives-listArrow');
+    let listText = blogArchivesListBlock.querySelector('.blog__archives-listText');
+    let plusItems = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem_plus');
+    let minusItems = blogArchivesListBlock.querySelectorAll('.blog__archives-listItem_minus');
+
+    listText.addEventListener('click', function() {
+      itemsList.classList.toggle('visible');
+      arrowOpenFunction();
+    });
+
+    function arrowOpenFunction() {
+      if (arrow) {
+        if (itemsList.classList.contains('visible')) { arrow.classList.add('open'); }
+        else { arrow.classList.remove('open'); }
+      }
+    }
+    if (arrow) {
+      arrow.addEventListener('click', function() {
+        itemsList.classList.toggle('visible');
+        arrowOpenFunction();
+      });  
+    }
+
+    itemBlocks.forEach(itemBlock => {
+      let plus = itemBlock.querySelector('.blog__archives-listItem_plus');
+      let minus = itemBlock.querySelector('.blog__archives-listItem_minus');
+      let year = itemBlock.querySelector('.blog__archives-listItem_year');
+      let months = itemBlock.querySelector('.blog__archives-listItem_months');
+      let monthLinks = itemBlock.querySelectorAll('.blog__archives-listItem_month > a');
+
+      year.addEventListener('click', function() {
+        plus.classList.toggle('inactive');
+        minus.classList.toggle('inactive');
+        months.classList.toggle('open');
+      });
+
+      monthLinks.forEach(monthLink => {
+        monthLink.addEventListener('click', function() {
+          if (arrow.classList.contains('open')) { arrow.classList.remove('open'); }
+          if (itemsList.classList.contains('visible')) { itemsList.classList.remove('visible'); }
+          itemMonths.forEach(itemMonthsOne => {
+            if (itemMonthsOne.classList.contains('open')) { itemMonthsOne.classList.remove('open'); }
+          });
+          plusItems.forEach(plusItem => {
+            if (plusItem.classList.contains('inactive')) { plusItem.classList.remove('inactive'); }
+          });
+          minusItems.forEach(minusItem => {
+            if (!minusItem.classList.contains('inactive')) { minusItem.classList.add('inactive'); }
+          });
+        });
+      });
+    });
+
+  }
+  blogArchivesListOpenFunction();
+}
+
+if (blogItemsArchivesList) {
+  function blogItemArchiveListOpenFunction(archiveList) {
+    let itemBlocks = archiveList.querySelectorAll('.blog-item__archives-listItem_block');
+    let itemMonths = archiveList.querySelectorAll('.blog-item__archives-listItem_months');
+    let plusItems = archiveList.querySelectorAll('.blog-item__archives-listItem_plus');
+    let minusItems = archiveList.querySelectorAll('.blog-item__archives-listItem_minus');
+
+    itemBlocks.forEach(itemBlock => {
+      let plus = itemBlock.querySelector('.blog-item__archives-listItem_plus');
+      let minus = itemBlock.querySelector('.blog-item__archives-listItem_minus');
+      let year = itemBlock.querySelector('.blog-item__archives-listItem_year');
+      let months = itemBlock.querySelector('.blog-item__archives-listItem_months');
+      let monthLinks = itemBlock.querySelectorAll('.blog-item__archives-listItem_month > a');
+
+      year.addEventListener('click', function() {
+        plus.classList.toggle('inactive');
+        minus.classList.toggle('inactive');
+        months.classList.toggle('open');
+      });
+
+      monthLinks.forEach(monthLink => {
+        monthLink.addEventListener('click', function() {
+          itemMonths.forEach(itemMonthsOne => {
+            if (itemMonthsOne.classList.contains('open')) { itemMonthsOne.classList.remove('open'); }
+          });
+          plusItems.forEach(plusItem => {
+            if (plusItem.classList.contains('inactive')) { plusItem.classList.remove('inactive'); }
+          });
+          minusItems.forEach(minusItem => {
+            if (!minusItem.classList.contains('inactive')) { minusItem.classList.add('inactive'); }
+          });
+        });
+      });
+    });
+  }
+
+  blogItemsArchivesList.forEach(blogItemArchivesList => {
+    blogItemArchiveListOpenFunction(blogItemArchivesList);
+  });
+}
 
 function checkScheduleButtonFunction(btn, zip, listText, list) {
   if (btn && list && zip) {
@@ -857,7 +950,7 @@ window.addEventListener('click', function(event) {
   let contactStateListClosest = target.closest('.header-contact_state-list');
   let contactMethodListClosest = target.closest('.header-contact_method-list');
   let blogCategoriesListClosest = target.closest('.blog__categories-list');
-  let blogArchivesListClosest = target.closest('.blog__archives-list');
+  let blogArchivesListClosest = target.closest('.blog__archives-listBlock');
 
   function listCloseOutsideFunction(listClosest, itemsList, arrow) {
     if (listClosest) { return; }

@@ -23,6 +23,7 @@
       &:not(:last-child)
         margin-bottom: 4rem
 
+.blog, .blog-item
   &__categories, &__archives
     &-listBlock
       width: 34rem
@@ -52,15 +53,16 @@
       background-color: $color-white
       box-shadow: 0.3rem 0.4rem 1.4rem rgba($color-black, 0.15)
       overflow-y: hidden
-      height: auto
+      max-height: fit-content
       padding: 1.5rem 1.4rem
-    &-listItem
-      &.selected
-        background: none
     &-listItem
       border-color: $color-main
       padding: 0 0 0.5rem
       margin-bottom: 1rem
+      &:last-child
+        margin-bottom: 0
+      &.selected
+        background: none
 
   &__categories
     &-listItem
@@ -107,8 +109,37 @@
       &_minus
         width: 1.2rem
         height: 0.4rem
+      &_months
+        margin-top: 0.7rem
+        padding-left: 0.4rem
+        max-height: 0
+        pointer-events: none
+        transition: 0.1s
+        overflow: hidden
+        &.open
+          max-height: 50rem
+          pointer-events: auto
+          transition: 0.5s
+      &_month
+        width: 100%
+        &:not(:last-child)
+          margin-bottom: 0.5rem
+        a
+          display: flex
+          justify-content: space-between
+          width: 100%
+          font-size: 1.6rem
+          color: $color-dark
+          text-decoration: none
+          span
+            display: block
+          &:hover
+            span:first-child
+              color: $color-red
+          &:active
+            color: $color-red
 
-
+.blog
   &__item
     width: 53rem
     height: 56.4rem
@@ -185,3 +216,65 @@
       &-next
         margin-left: 2.5rem
 
+
+@media (max-width: 1120px)
+  .blog
+    &__container
+      max-width: 99% !important
+    &__items
+      &_row
+        .blog__item
+          &:first-child
+            margin-right: 2rem
+          &:last-child
+            margin-left: 2rem
+    &__item
+      height: fit-content
+      &_img
+        height: auto
+  .blog, .blog-item
+    &__archives
+      &-listItem
+        &_year:hover span
+          text-decoration: none
+        &_month:hover a
+          color: $color-dark
+
+@media (max-width: 740px)
+  .blog
+    &__items
+      &_row
+        flex-direction: column
+        .blog__item
+          &:first-child
+            margin-right: 0
+          &:last-child
+            margin-left: 0
+    &__item
+      width: 100%
+      &:first-child
+        margin-bottom: 4rem
+
+@media (max-width: 715px)
+  .blog
+    &__filtres
+      flex-direction: column
+    &__filter
+      width: 100%
+    &__categories, &__archives
+      &-listBlock
+        width: 100%
+    &__categories
+      margin-bottom: 2.2rem
+
+@media (max-width: 360px)
+  .blog
+    &__item
+      padding: 2rem 1.8rem 2.2rem
+      &_title
+        font-size: 3.2rem  
+
+
+
+
+ 

@@ -1,0 +1,175 @@
+.blog-item
+  &__title
+    font-size: 4.4rem
+    +gilroy_medium
+    margin-bottom: 6rem
+  &__item
+    display: flex
+    width: 44rem
+
+  &__arrows
+    display: flex
+    align-items: center
+    width: 100%
+    justify-content: space-between
+  &__arrow
+    display: flex
+    align-items: center
+    user-select: none
+    transition: 0.1s
+    &-title
+      +gilroy_light
+      font-size: 2.4rem
+    &:hover
+      cursor: pointer
+    &:active
+      transform: translateY(0.06rem)
+  &__arrowIcon
+    width: 1.4rem
+    height: 2.3rem
+    svg
+      width: 100%
+      height: 100%
+    &-prev
+      margin-right: 1.2rem
+    &-next
+      margin-left: 1.2rem
+
+  &__block
+    width: 100%
+    margin-bottom: 12.7rem
+    display: flex
+    justify-content: space-between
+    &-left
+      width: 68rem
+    &-data
+      margin-top: 2rem
+      &_img
+        width: 100%
+        height: auto
+        img
+          width: 100%
+          height: 100%
+      &_text
+        font-size: 2.4rem
+        line-height: 1.2
+        margin-bottom: 3rem
+        p
+          text-align: justify
+
+    &-categories
+      margin-top: 4.6rem
+      border: 0.1rem solid $color-main
+      border-radius: 0.5rem
+      padding: 2rem
+      &_title
+        font-size: 2.8rem
+        +gilroy_medium
+        margin-bottom: 1.3rem
+      &_link
+        display: block
+        color: $color-red
+        +gilroy_medium
+        font-size: 2rem
+        text-decoration: none
+        &:not(:last-child)
+          margin-bottom: 0.7rem
+        &:hover
+          text-decoration: underline
+
+    &-dateSocials
+      display: flex
+      width: 100%
+      align-items: center
+      justify-content: space-between
+      margin: 2rem 0 3rem
+    &-date p
+      +gilroy_medium
+      font-size: 2.4rem
+    &-socials
+      display: flex
+      width: 8.7rem
+      &_icon
+        display: block
+        height: 3rem
+        width: auto
+        transition: 0.1s
+        svg
+          width: 100%
+          height: 100%
+        &:active
+          transform: translateY(0.08rem)
+      &_twitter
+        margin-left: 2rem
+
+  &__categories, &__archives
+    &-listBlock
+      position: static
+      height: auto
+    &-list
+      border: none
+      position: static
+    &-listText
+      width: 100%
+      margin-bottom: 0.6rem
+      p
+        +gilroy_medium
+        font-size: 2.4rem
+        width: 100%
+    &-listItems
+      position: static
+
+  &__categories
+    margin-top: 6rem
+    margin-bottom: 6rem
+
+@media (max-width: 1120px)
+  .blog-item
+    &__container
+      max-width: 99% !important
+
+
+@media (max-width: 1060px)
+  .blog-item
+    &__block
+      flex-direction: column
+      align-items: center
+      &-right
+        width: 68rem
+    &__title
+      text-align: center
+    &__categories, &__archives
+      &-listBlock
+        width: 100%
+
+@media (max-width: 700px)
+  .blog-item
+    &__container
+      max-width: 95% !important
+    &__block
+      &-left, &-right
+        width: 100%
+
+@media (max-width: 480px)
+  .blog-item
+    &__title
+      font-size: 4rem
+      margin-bottom: 4rem
+      line-height: 1.2
+    &__arrow
+      &-title
+        font-size: 2rem
+    &__arrowIcon
+      width: 1.2rem
+      height: 2rem
+    &__block
+      &-data
+        &_text
+          font-size: 1.8rem
+    &__categories
+      margin-top: 3.8rem
+      margin-bottom: 4.2rem
+        
+
+
+

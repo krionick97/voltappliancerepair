@@ -93,6 +93,9 @@ body
     &.open
       transition: 0.1s
       transform: rotate(180deg)
+    &.inactive
+      display: none
+
   &-items
     opacity: 0
     pointer-events: none
@@ -186,6 +189,7 @@ body
 @import 'header-site-map'
 @import 'header-locations'
 @import 'blog'
+@import 'blog-item'
 
 @media (max-width: 1120px)
   .container
