@@ -19,21 +19,8 @@ function stopSlider() {
 const zipCodeInputs = document.querySelectorAll('.zip-input');
 const phoneInputs = document.querySelectorAll('.phone-input');
 
-const scheduleList_1 = document.querySelector('.schedule_list-1');
-const scheduleListText_1 = document.querySelector('.schedule_list-text-1');
-const scheduleListItemsList_1 = document.querySelector('.schedule_list-items-1');
-const scheduleListItems_1 = document.querySelectorAll('.schedule_list-item-1');
-const scheduleListArrow_1 = document.querySelector('.schedule_list-arrow-1');
-const scheduleZip_1 = document.querySelector('.schedule-zip-1');
-const scheduleZip_2 = document.querySelector('.schedule-zip-2');
-const scheduleButton_1 = document.querySelector('.schedule-btn-1');
-const scheduleButton_2 = document.querySelector('.schedule-btn-2');
-
-const scheduleList_2 = document.querySelector('.schedule_list-2');
-const scheduleListText_2 = document.querySelector('.schedule_list-text-2');
-const scheduleListItemsList_2 = document.querySelector('.schedule_list-items-2');
-const scheduleListItems_2 = document.querySelectorAll('.schedule_list-item-2');
-const scheduleListArrow_2 = document.querySelector('.schedule_list-arrow-2');
+const scheduleListBlocks = document.querySelectorAll('.schedule_listBlock');
+const scheduleButtonBlocks = document.querySelectorAll('.schedule-button_block');
 
 const applianceTypeList = document.querySelector('.appliance-type-list');
 const applianceTypeListText = document.querySelector('.appliance-type-list_text');
@@ -650,24 +637,26 @@ if (popup) {
 }
 
 function burgerButtonFunction() {
-  burgerButton.addEventListener('click', function() {
-    burgerButton.classList.toggle('open');
-    navigateMenu.classList.toggle('visible');
-  });
-
-  navigateMenuItems.forEach((navigateMenuItem, index, array) => {
-    navigateMenuItem.addEventListener('click', function() {
-      if (navigateMenu.classList.contains('visible')) { navigateMenu.classList.remove('visible'); }
-      if (burgerButton.classList.contains('open')) { burgerButton.classList.remove('open'); }
-      if (!navigateMenuItem.classList.contains('selected')) { navigateMenuItem.classList.add('selected'); }
-      for (let j = index - 1; j >= 0; j--) {
-        if (array[j].classList.contains('selected')) { array[j].classList.remove('selected'); }
-      }
-      for (let k = index + 1; k < array.length; k++) {
-        if (array[k].classList.contains('selected')) { array[k].classList.remove('selected'); }
-      }
+  if (burgerButton) {
+    burgerButton.addEventListener('click', function() {
+      burgerButton.classList.toggle('open');
+      navigateMenu.classList.toggle('visible');
     });
-  });
+  
+    navigateMenuItems.forEach((navigateMenuItem, index, array) => {
+      navigateMenuItem.addEventListener('click', function() {
+        if (navigateMenu.classList.contains('visible')) { navigateMenu.classList.remove('visible'); }
+        if (burgerButton.classList.contains('open')) { burgerButton.classList.remove('open'); }
+        if (!navigateMenuItem.classList.contains('selected')) { navigateMenuItem.classList.add('selected'); }
+        for (let j = index - 1; j >= 0; j--) {
+          if (array[j].classList.contains('selected')) { array[j].classList.remove('selected'); }
+        }
+        for (let k = index + 1; k < array.length; k++) {
+          if (array[k].classList.contains('selected')) { array[k].classList.remove('selected'); }
+        }
+      });
+    });
+  }
 }
 burgerButtonFunction();
 
@@ -699,6 +688,7 @@ function listOpenFunction(arrow, list, itemsList, text, items, input) {
     arrow.addEventListener('click', function() {
       itemsList.classList.toggle('visible');
       arrowOpenFunction();
+      console.log(arrow);
     });  
   }
   if (list) {
@@ -743,16 +733,24 @@ function listOpenFunction(arrow, list, itemsList, text, items, input) {
   }
 }
 
-
 // listOpenFunction(arrow, list, itemsList, text, items)
-listOpenFunction(scheduleListArrow_1, scheduleList_1, scheduleListItemsList_1, scheduleListText_1, scheduleListItems_1);
-listOpenFunction(scheduleListArrow_2, scheduleList_2, scheduleListItemsList_2, scheduleListText_2, scheduleListItems_2);
 listOpenFunction(applianceTypeListArrow, applianceTypeList, applianceTypeListItems, applianceTypeListText, applianceTypeListItem);
 listOpenFunction(applianceBrandListArrow, applianceBrandList, applianceBrandListItems, applianceBrandListText, applianceBrandListItem, applianceBrandListInput);
 listOpenFunction(stateListArrow, stateList, stateListItems, stateListText, stateListItem);
 listOpenFunction(contactStateListArrow, contactStateList, contactStateListItems, contactStateListText, contactStateListItem);
 listOpenFunction(contactMethodListArrow, contactMethodList, contactMethodListItems, contactMethodListText, contactMethodListItem);
 listOpenFunction(blogCategoriesListArrow, blogCategoriesList, blogCategoriesListItems, blogCategoriesListText, blogCategoriesListItem);
+
+scheduleListBlocks.forEach(scheduleListBlock => {
+  if (scheduleListBlock) {
+    const scheduleList = scheduleListBlock.querySelector('.schedule_list');
+    const scheduleListText = scheduleListBlock.querySelector('.schedule_list-text');
+    const scheduleListItemsList = scheduleListBlock.querySelector('.schedule_list-items');
+    const scheduleListItems = scheduleListBlock.querySelectorAll('.schedule_list-item');
+    const scheduleListArrow = scheduleListBlock.querySelector('.schedule_list-arrow');
+    listOpenFunction(scheduleListArrow, scheduleList, scheduleListItemsList, scheduleListText, scheduleListItems);
+  }
+});
 
 if (blogArchivesListBlock) {
   function blogArchivesListOpenFunction() {
@@ -874,8 +872,17 @@ function checkScheduleButtonFunction(btn, zip, listText, list) {
     });
   } 
 }
-checkScheduleButtonFunction(scheduleButton_1, scheduleZip_1, scheduleListText_1, scheduleList_1);
-checkScheduleButtonFunction(scheduleButton_2, scheduleZip_2, scheduleListText_2, scheduleList_2);
+
+scheduleButtonBlocks.forEach(scheduleButtonBlock => {
+  if (scheduleButtonBlock) {
+    const scheduleButton = scheduleButtonBlock.querySelector('.schedule-btn');
+    const scheduleZip = scheduleButtonBlock.querySelector('.schedule-zip');
+    const scheduleListText = scheduleButtonBlock.querySelector('.schedule_list-text');
+    const scheduleList = scheduleButtonBlock.querySelector('.schedule_list');
+    checkScheduleButtonFunction(scheduleButton, scheduleZip, scheduleListText, scheduleList);
+  }
+});
+
 
 problemItems.forEach(problemItem => {
   problemItem.addEventListener('click', function() {
@@ -942,8 +949,6 @@ if (popupServiceLocation) {
 
 window.addEventListener('click', function(event) {
   let target = event.target;
-  let scheduleListClosest_1 = target.closest('.schedule_list-1');
-  let scheduleListClosest_2 = target.closest('.schedule_list-2');
   let applianceTypeListClosest = target.closest('.appliance-type-list');
   let applianceBrandListClosest = target.closest('.appliance-brand-list');
   let stateListClosest = target.closest('.header-location_state-list');
@@ -962,8 +967,15 @@ window.addEventListener('click', function(event) {
     }
   }
 
-  listCloseOutsideFunction(scheduleListClosest_1, scheduleListItemsList_1, scheduleListArrow_1);
-  listCloseOutsideFunction(scheduleListClosest_2, scheduleListItemsList_2, scheduleListArrow_2);
+  scheduleListBlocks.forEach(scheduleListBlock => {
+    if (scheduleListBlock) {
+      let scheduleListClosest = target.closest('.schedule_list');
+      const scheduleListItemsList = scheduleListBlock.querySelector('.schedule_list-items');
+      const scheduleListArrow = scheduleListBlock.querySelector('.schedule_list-arrow');
+      listCloseOutsideFunction(scheduleListClosest, scheduleListItemsList, scheduleListArrow);
+    }
+  });
+
   listCloseOutsideFunction(applianceTypeListClosest, applianceTypeListItems, applianceTypeListArrow);
   listCloseOutsideFunction(applianceBrandListClosest, applianceBrandListItems, applianceBrandListArrow);
   listCloseOutsideFunction(stateListClosest, stateListItems, stateListArrow);
