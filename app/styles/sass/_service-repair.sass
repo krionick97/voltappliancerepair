@@ -1,0 +1,206 @@
+.service-repair
+  padding: 9rem 0 12rem
+  &__block
+    width: 100%
+    display: flex
+    justify-content: space-between
+    margin-bottom: 8.4rem
+    &_column
+      &:first-child
+        width: 56.5rem
+      &:last-child
+        width: 45rem
+  &__text
+    width: 100%
+    &_title
+      +gilroy_medium
+      font-size: 4.4rem
+      text-align: center
+      max-width: 45rem
+      margin: 0 auto 2.3rem
+    &_paragraph
+      font-size: 2.2rem
+      line-height: 1.2
+      text-align: justify
+  &__needs
+    margin: 4.2rem auto
+    width: fit-content
+    &_title
+      +gilroy_medium
+      font-size: 2.8rem
+      max-width: 45rem
+      line-height: 1.2
+      text-align: center
+      margin: 0 auto 3rem
+    &_items
+      margin-left: 3.4rem
+    &_item
+      width: fit-content
+      display: flex
+      align-items: center
+      &-point
+        display: block
+        width: 1rem
+        height: 1rem
+        border-radius: 50%
+        background-color: $color-red
+        margin-right: 1rem
+      &:not(:last-child)
+        margin-bottom: 1.2rem
+      &-link
+        display: block
+        width: fit-content
+        color: $color-dark
+        font-size: 2.2rem
+        text-decoration: none
+        transition: 0.1s
+        &:hover
+          transform: translateY(-0.04rem)
+        &:active
+          color: $color-red
+
+  &__sliderBlock
+    width: 100%
+    height: 63.2rem
+    padding: 2.8rem 3.5rem 3.7rem
+    box-sizing: border-box
+    border: 0.1rem solid $color-red
+    border-radius: 0.5rem
+    margin-bottom: 9.6rem
+    .sliderBlock__content
+      width: 100%
+      .sliderBlock__content_slider-block
+        width: 100%
+      .sliderBlock__content_buttons
+        flex-direction: column
+        button
+          width: 90%
+          margin:
+            left: auto
+            right: auto
+          &:first-child
+            margin-bottom: 2.5rem
+      .sliderBlock__content_promotion-title
+        font-size: 5.2rem
+      .sliderBlock__content_promotion-notes
+        margin: 1rem 1rem 3.5rem
+
+  &__review
+    width: 100%
+    padding: 5.5rem 7.5rem 5.8rem
+    box-sizing: border-box
+    background-color: $color-bg-main
+    border-radius: 0.5rem
+    border: 0.1rem solid $color-main
+    &_person
+      display: flex
+      width: fit-content
+      margin: 0 auto 0.7rem
+      align-items: flex-end
+    &_name
+      +gilroy_medium
+      font-size: 2.6rem
+    &_from
+      margin-left: 1rem
+      display: flex
+      align-items: flex-end
+      p
+        font-size: 1.6rem
+        margin-right: 1rem
+    &_social-icon
+      height: 2.6rem
+      display: none
+      svg
+        height: 100%
+      &.active
+        display: block
+    &_stars
+      width: fit-content
+      margin: 0 auto 3.8rem
+    &_star
+      width: 14.2rem
+      height: 2.1rem
+      display: none
+      &.active
+        display: block
+    &_text
+      font-size: 2.2rem
+      line-height: 1.2
+      text-align: justify
+      width: 100%
+      overflow: hidden
+
+@media (max-width: 1130px)
+  .service-repair
+    &__block
+      &_column
+        &:first-child
+          width: 45%
+        .sliderBlock__content
+          flex-direction: row
+          align-items: flex-start
+          justify-content: flex-start
+
+@media (max-width: 950px)
+  .service-repair
+    &__text
+    &__block
+      flex-direction: column
+      &_column
+        &:first-child, &:last-child
+          width: 70.8rem
+        &:first-child
+          margin: 0 auto 8rem
+        &:last-child
+          margin: 0 auto
+    &__sliderBlock .sliderBlock__content
+      // .sliderBlock__content_promotion-title
+      //   font-size: 5.2rem
+      .sliderBlock__content_promotion-notes
+        margin: 1rem auto 3.5rem
+        width: fit-content
+      .sliderBlock__content_promotion-notes
+        width: fit-content
+
+@media (max-width: 780px)
+  .service-repair
+    padding: 7rem 0 10rem
+    &__block
+      margin-bottom: 6rem
+      &_column
+        &:first-child, &:last-child
+          width: 96%
+    &__sliderBlock
+      margin-bottom: 7rem
+    &__sliderBlock .sliderBlock__content
+      .sliderBlock__content_promotion-title
+        font-size: 4.6rem
+
+@media (max-width: 480px)
+  .service-repair
+    &__review
+      padding: 5rem 6rem 5.5rem
+      &_person
+        flex-direction: column
+        align-items: center
+      &_name
+        font-size: 2.4rem
+        margin-bottom: 0.5rem
+        white-space: nowrap
+      &_from
+        margin-left: 0
+      &_text
+        font-size: 1.6rem
+    &__sliderBlock .sliderBlock__content
+      .sliderBlock__content_promotion-title
+        font-size: 3.6rem
+      .sliderBlock__content_promotion-sale
+        font-size: 3rem
+      .sliderBlock__content_promotion-condition
+        font-size: 1.4rem
+      // .sliderBlock__content_promotion-notes
+      .sliderBlock__content_promotion-note
+        width: 80%
+        font-size: 1.6rem
+
+

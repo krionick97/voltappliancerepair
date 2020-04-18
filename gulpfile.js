@@ -38,14 +38,14 @@ gulp.task('css', function() {
 /* SASS preprocessor */
 gulp.task('sass', function() {
   return gulp.src('app/styles/sass/style.sass')
-        .pipe(gulpPlugin.sourcemaps.init())
+        // .pipe(gulpPlugin.sourcemaps.init())
         .pipe(gulpPlugin.sass({}))
         .pipe(gulpPlugin.autoprefixer({}))
         .on("error", gulpPlugin.notify.onError({
           message: "Error: <%= error.message %>",
           title: "Error in style"
         }))
-        .pipe(gulpPlugin.sourcemaps.write())
+        // .pipe(gulpPlugin.sourcemaps.write())
         .pipe(gulp.dest('public/assets/css/'))
         .pipe(browserSync.reload({
           stream: true

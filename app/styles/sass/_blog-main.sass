@@ -2,8 +2,25 @@
   position: static
   &_container
     margin-bottom: 5.5rem
+    .blog__items > .blog__items_row > .blog__item
+      max-height: 43.5rem
+      &:nth-child(2)
+        margin: 0 2rem
   &_btn
     display: block
     width: fit-content
     padding: 0.9rem 3.1rem
     margin: 0 auto
+
+@media (max-width: 1120px)
+  .main-blog
+    &_container
+    .blog__items > .blog__items_row > .blog__item:nth-child(2)
+      margin: 0 0 4rem
+
+@media (max-width: 740px)
+  .main-blog
+    &_container
+    .blog__items > .blog__items_row > .blog__item
+      max-height: 62.6rem
+
