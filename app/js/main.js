@@ -5,16 +5,23 @@ $('.sliderBlock__content_slider-items').slick({
   dots: true,
   arrows: false,
   autoplay: false,
-  // autoplaySpeed: 3000
+  autoplaySpeed: 3000
 });
-// startSlider();
+startSlider();
 
-// function startSlider() {
-//   $('.sliderBlock__content_slider-items').slick('slickPlay');  
-// }
-// function stopSlider() {
-//   $('.sliderBlock__content_slider-items').slick('slickPause');  
-// }
+function startSlider() {
+  $('.sliderBlock__content_slider-items').slick('slickPlay');  
+}
+function stopSlider() {
+  $('.sliderBlock__content_slider-items').slick('slickPause');  
+}
+
+$('.service-repair__review_sliderBlock').slick({
+  dots: false,
+  arrows: false,
+  autoplay: true,
+  autoplaySpeed: 4000
+});
 
 const zipCodeInputs = document.querySelectorAll('.zip-input');
 const phoneInputs = document.querySelectorAll('.phone-input');

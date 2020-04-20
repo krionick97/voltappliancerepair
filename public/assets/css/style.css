@@ -4865,6 +4865,8 @@ body {
        -moz-border-radius: 0.5rem;
             border-radius: 0.5rem;
     border: 0.1rem solid #DADADA; }
+    .service-repair__review_item {
+      outline: none; }
     .service-repair__review_person {
       display: -webkit-box;
       display: -webkit-flex;
@@ -5015,6 +5017,10 @@ body {
   .service-repair__sliderBlock .sliderBlock__content .sliderBlock__content_promotion-note {
     width: 80%;
     font-size: 1.6rem; } }
+
+@media (max-width: 480px) {
+  .service-repair__review_name {
+    font-size: 2rem; } }
 
 @media (max-width: 1120px) {
   .container {

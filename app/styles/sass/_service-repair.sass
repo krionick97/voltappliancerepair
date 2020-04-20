@@ -92,6 +92,8 @@
     background-color: $color-bg-main
     border-radius: 0.5rem
     border: 0.1rem solid $color-main
+    &_item
+      outline: none
     &_person
       display: flex
       width: fit-content
@@ -202,5 +204,12 @@
       .sliderBlock__content_promotion-note
         width: 80%
         font-size: 1.6rem
+
+@media (max-width: 480px)
+  .service-repair
+    &__review
+      &_name
+        font-size: 2rem
+
 
 
